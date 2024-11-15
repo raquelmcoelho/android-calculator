@@ -1,77 +1,107 @@
-package com.example.calculatrice;
+ package com.example.calculatrice;
 
-import android.os.Bundle;
+ import androidx.appcompat.app.AppCompatActivity;
+ import android.os.Bundle;
+ import android.view.View;
+ import android.widget.Button;
+ import android.widget.EditText;
 
-import com.google.android.material.snackbar.Snackbar;
+ public class MainActivity extends AppCompatActivity {
 
-import androidx.appcompat.app.AppCompatActivity;
+     private EditText input;
+     private String currentInput = "";
+     private double firstNumber = 0;
+     private String operator = "";
 
-import android.view.View;
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_main);
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+         input = findViewById(R.id.input);
+         setupNumberButtons();
+         setupOperatorButtons();
+     }
 
-import com.example.calculatrice.databinding.ActivityMainBinding;
+     private void setupNumberButtons() {
+         int[] numberButtonIds = {
+             R.id.btn0, R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,
+             R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9, R.id.btnDot
+         };
 
-import android.view.Menu;
-import android.view.MenuItem;
+         View.OnClickListener listener = v -> {
+             Button button = (Button) v;
+             currentInput += button.getText().toString();
+             input.setText(currentInput);
+         };
 
-public class MainActivity extends AppCompatActivity {
+         for (int id : numberButtonIds) {
+             findViewById(id).setOnClickListener(listener);
+         }
+     }
 
-    private AppBarConfiguration appBarConfiguration;
-    private ActivityMainBinding binding;
+     private void setupOperatorButtons() {
+         findViewById(R.id.btnAdd).setOnClickListener(v -> handleOperator("+"));
+         findViewById(R.id.btnSubtract).setOnClickListener(v -> handleOperator("-"));
+         findViewById(R.id.btnMultiply).setOnClickListener(v -> handleOperator("*"));
+         findViewById(R.id.btnDivide).setOnClickListener(v -> handleOperator("/"));
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+         findViewById(R.id.btnEquals).setOnClickListener(v -> calculateResult());
+         findViewById(R.id.btnClear).setOnClickListener(v -> clear());
+         findViewById(R.id.btnDelete).setOnClickListener(v -> deleteLastCharacter());
+     }
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+     private void handleOperator(String op) {
+         if (!currentInput.isEmpty()) {
+             firstNumber = Double.parseDouble(currentInput);
+             operator = op;
+             currentInput = "";
+             input.setText("");
+         }
+     }
 
-        setSupportActionBar(binding.toolbar);
+     private void calculateResult() {
+         if (!currentInput.isEmpty() && !operator.isEmpty()) {
+             double secondNumber = Double.parseDouble(currentInput);
+             double result = 0;
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+             switch (operator) {
+                 case "+":
+                     result = firstNumber + secondNumber;
+                     break;
+                 case "-":
+                     result = firstNumber - secondNumber;
+                     break;
+                 case "*":
+                     result = firstNumber * secondNumber;
+                     break;
+                 case "/":
+                     if (secondNumber != 0) {
+                         result = firstNumber / secondNumber;
+                     } else {
+                         input.setText("Error");
+                         return;
+                     }
+                     break;
+             }
 
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAnchorView(R.id.fab)
-                        .setAction("Action", null).show();
-            }
-        });
-    }
+             input.setText(String.valueOf(result));
+             currentInput = String.valueOf(result);
+             operator = "";
+         }
+     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+     private void clear() {
+         currentInput = "";
+         firstNumber = 0;
+         operator = "";
+         input.setText("");
+     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
-    }
-}
+     private void deleteLastCharacter() {
+         if (!currentInput.isEmpty()) {
+             currentInput = currentInput.substring(0, currentInput.length() - 1);
+             input.setText(currentInput);
+         }
+     }
+ }

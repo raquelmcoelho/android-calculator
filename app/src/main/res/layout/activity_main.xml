@@ -1,33 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <EditText
+        android:id="@+id/input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true">
+        android:inputType="numberDecimal"
+        android:hint="0"
+        android:textSize="24sp"
+        android:gravity="right"
+        android:enabled="false" />
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize" />
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <include layout="@layout/content_main" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
+    <GridLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginBottom="16dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:columnCount="4"
+        android:rowCount="5"
+        android:layout_marginTop="16dp">
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <!-- Row 1 -->
+        <Button android:id="@+id/btnClear" android:layout_width="wrap_content" android:layout_height="50dp" android:text="C" />
+        <Button android:id="@+id/btnDivide" android:layout_width="wrap_content" android:layout_height="50dp" android:text="/" />
+        <Button android:id="@+id/btnMultiply" android:layout_width="wrap_content" android:layout_height="50dp" android:text="*" />
+        <Button android:id="@+id/btnDelete" android:layout_width="wrap_content" android:layout_height="50dp" android:text="⌫" />
+
+        <!-- Row 2 -->
+        <Button android:id="@+id/btn7" android:layout_width="wrap_content" android:layout_height="50dp" android:text="7" />
+        <Button android:id="@+id/btn8" android:layout_width="wrap_content" android:layout_height="50dp" android:text="8" />
+        <Button android:id="@+id/btn9" android:layout_width="wrap_content" android:layout_height="50dp" android:text="9" />
+        <Button android:id="@+id/btnSubtract" android:layout_width="wrap_content" android:layout_height="50dp" android:text="-" />
+
+        <!-- Row 3 -->
+        <Button android:id="@+id/btn4" android:layout_width="wrap_content" android:layout_height="50dp" android:text="4" />
+        <Button android:id="@+id/btn5" android:layout_width="wrap_content" android:layout_height="50dp" android:text="5" />
+        <Button android:id="@+id/btn6" android:layout_width="wrap_content" android:layout_height="50dp" android:text="6" />
+        <Button android:id="@+id/btnAdd" android:layout_width="wrap_content" android:layout_height="50dp" android:text="+" />
+
+        <!-- Row 4 -->
+        <Button android:id="@+id/btn1" android:layout_width="wrap_content" android:layout_height="50dp" android:text="1" />
+        <Button android:id="@+id/btn2" android:layout_width="wrap_content" android:layout_height="50dp" android:text="2" />
+        <Button android:id="@+id/btn3" android:layout_width="wrap_content" android:layout_height="50dp" android:text="3" />
+        <Button android:id="@+id/btnEquals" android:layout_width="wrap_content" android:layout_height="50dp" android:text="=" />
+
+        <!-- Row 5 -->
+        <Button android:id="@+id/btn0" android:layout_width="wrap_content" android:layout_height="50dp" android:layout_columnSpan="2" android:text="0" />
+        <Button android:id="@+id/btnDot" android:layout_width="wrap_content" android:layout_height="50dp" android:text="." />
+    </GridLayout>
+</LinearLayout>
+
