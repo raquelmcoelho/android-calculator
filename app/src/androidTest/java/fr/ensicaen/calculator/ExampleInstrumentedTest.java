@@ -1,4 +1,4 @@
-package fr.ensicaen.helloworld;
+  package fr.ensicaen.calculator;
 
   import android.content.Context;
   import androidx.test.platform.app.InstrumentationRegistry;
@@ -20,6 +20,6 @@ package fr.ensicaen.helloworld;
       public void useAppContext() {
           // Context of the app under test.
           Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-          assertEquals("fr.ensicaen.helloworld", appContext.getPackageName());
+          assertEquals("fr.ensicaen.calculator", appContext.getPackageName());
       }
   }

@@ -1,4 +1,4 @@
-package fr.ensicaen.helloworld;
+package fr.ensicaen.calculator;
 
   import org.junit.Test;
 

@@ -1,20 +1,24 @@
- package com.example.calculatrice;
+ package fr.ensicaen.calculator;
 
  import androidx.appcompat.app.AppCompatActivity;
  import android.os.Bundle;
  import android.view.View;
  import android.widget.Button;
  import android.widget.EditText;
+ import fr.ensicaen.calculator.databinding.ActivityMainBinding;
 
  public class MainActivity extends AppCompatActivity {
      private EditText input;
      private String currentInput = "";
      private double firstNumber = 0;
      private String operator = "";
+     ActivityMainBinding _activityMainBinding;
 
      @Override
      protected void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
+
+         _activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
          setContentView(R.layout.activity_main);
 
          input = findViewById(R.id.input);

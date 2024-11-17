@@ -1,3 +1,3 @@
-TP 01 - Calculatrice
+TP 01 - Calculator
 Mobile Development
 Raquel Maciel Coelho de Sousa
