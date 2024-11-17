@@ -7,7 +7,6 @@
  import android.widget.EditText;
 
  public class MainActivity extends AppCompatActivity {
-
      private EditText input;
      private String currentInput = "";
      private double firstNumber = 0;
