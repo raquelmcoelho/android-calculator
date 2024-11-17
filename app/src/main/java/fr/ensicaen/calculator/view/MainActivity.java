@@ -1,10 +1,12 @@
- package fr.ensicaen.calculator;
+ package fr.ensicaen.calculator.view;
 
  import androidx.appcompat.app.AppCompatActivity;
  import android.os.Bundle;
  import android.view.View;
  import android.widget.Button;
  import android.widget.EditText;
+
+ import fr.ensicaen.calculator.R;
  import fr.ensicaen.calculator.databinding.ActivityMainBinding;
 
  public class MainActivity extends AppCompatActivity {
@@ -58,8 +60,8 @@
          if (!currentInput.isEmpty()) {
              firstNumber = Double.parseDouble(currentInput);
              operator = op;
-             currentInput = "";
-             input.setText("");
+             currentInput += op;
+             input.setText(currentInput);
          }
      }
 
