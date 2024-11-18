@@ -5,8 +5,8 @@
     <string name="hint_input">0</string>
     <string name="button_dot">.</string>
     <string name="button_equals">=</string>
-    <string name="button_open_parenthesis">(</string>
-    <string name="button_close_parenthesis">)</string>
+    <string name="button_open_parentheses">(</string>
+    <string name="button_close_parentheses">)</string>
     <string name="button_divide">/</string>
     <string name="button_multiply">*</string>
     <string name="button_sum">+</string>
