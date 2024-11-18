@@ -1,24 +1,24 @@
- package fr.ensicaen.calculator;
+ package fr.ensicaen.calculator.view;
 
  import androidx.appcompat.app.AppCompatActivity;
  import android.os.Bundle;
  import android.view.View;
- import android.widget.Button;
- import android.widget.EditText;
- import fr.ensicaen.calculator.databinding.ActivityMainBinding;
+ import android.widget.TextView;
+
+ import com.google.android.material.button.MaterialButton;
+
+ import fr.ensicaen.calculator.R;
 
  public class MainActivity extends AppCompatActivity {
-     private EditText input;
+     private TextView input;
      private String currentInput = "";
      private double firstNumber = 0;
      private String operator = "";
-     ActivityMainBinding _activityMainBinding;
 
      @Override
      protected void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
 
-         _activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
          setContentView(R.layout.activity_main);
 
          input = findViewById(R.id.input);
@@ -33,8 +33,9 @@
          };
 
          View.OnClickListener listener = v -> {
-             Button button = (Button) v;
-             currentInput += button.getText().toString();
+             MaterialButton button = (MaterialButton) v;
+             System.out.println(button.getText());
+             currentInput = button.getText().toString();
              input.setText(currentInput);
          };
 
@@ -58,8 +59,8 @@
          if (!currentInput.isEmpty()) {
              firstNumber = Double.parseDouble(currentInput);
              operator = op;
-             currentInput = "";
-             input.setText("");
+             currentInput = op;
+             input.setText(currentInput);
          }
      }
 
