@@ -1,111 +1,120 @@
- package fr.ensicaen.calculator.view;
+package fr.ensicaen.calculator.view;
 
- import androidx.appcompat.app.AppCompatActivity;
- import android.os.Bundle;
- import android.view.View;
- import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.TextView;
+import org.mariuszgromada.math.mxparser.*;
+import android.widget.HorizontalScrollView;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.view.View;
+import android.widget.Toast;
 
- import com.google.android.material.button.MaterialButton;
+import com.google.android.material.button.MaterialButton;
 
- import fr.ensicaen.calculator.R;
+import fr.ensicaen.calculator.R;
 
- public class MainActivity extends AppCompatActivity {
-     private TextView input;
-     private String currentInput = "";
-     private double firstNumber = 0;
-     private String operator = "";
+public class MainActivity extends AppCompatActivity {
 
-     @Override
-     protected void onCreate(Bundle savedInstanceState) {
-         super.onCreate(savedInstanceState);
+    private TextView input;
+    private String currentInput = "";
+    private HorizontalScrollView scrollView;
 
-         setContentView(R.layout.activity_main);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-         input = findViewById(R.id.input);
-         setupNumberButtons();
-         setupOperatorButtons();
-     }
+        setContentView(R.layout.activity_main);
 
-     private void setupNumberButtons() {
-         int[] numberButtonIds = {
-             R.id.btn0, R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,
-             R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9, R.id.btnDot
-         };
+        scrollView = findViewById(R.id.scrollInput);
+        input = findViewById(R.id.input);
+        setupNumberButtons();
+        setupOperatorButtons();
+    }
 
-         View.OnClickListener listener = v -> {
-             MaterialButton button = (MaterialButton) v;
-             System.out.println(button.getText());
-             currentInput = button.getText().toString();
-             input.setText(currentInput);
-         };
+    private void setupNumberButtons() {
+        int[] numberButtonIds = {
+            R.id.btn0, R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,
+            R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9, R.id.btnDot
+        };
 
-         for (int id : numberButtonIds) {
-             findViewById(id).setOnClickListener(listener);
-         }
-     }
+        View.OnClickListener listener = v -> {
+            MaterialButton button = (MaterialButton) v;
+            System.out.println(button.getText());
+            currentInput += button.getText().toString();
+            updateInput();
 
-     private void setupOperatorButtons() {
-         findViewById(R.id.btnAdd).setOnClickListener(v -> handleOperator("+"));
-         findViewById(R.id.btnSubtract).setOnClickListener(v -> handleOperator("-"));
-         findViewById(R.id.btnMultiply).setOnClickListener(v -> handleOperator("*"));
-         findViewById(R.id.btnDivide).setOnClickListener(v -> handleOperator("/"));
+        };
 
-         findViewById(R.id.btnEquals).setOnClickListener(v -> calculateResult());
-         findViewById(R.id.btnClear).setOnClickListener(v -> clear());
-         findViewById(R.id.btnDelete).setOnClickListener(v -> deleteLastCharacter());
-     }
+        for (int id : numberButtonIds) {
+            findViewById(id).setOnClickListener(listener);
+        }
+    }
 
-     private void handleOperator(String op) {
-         if (!currentInput.isEmpty()) {
-             firstNumber = Double.parseDouble(currentInput);
-             operator = op;
-             currentInput = op;
-             input.setText(currentInput);
-         }
-     }
+    private void updateInput() {
+        input.setText(currentInput);
+        scrollView.post(() -> scrollView.fullScroll(HorizontalScrollView.FOCUS_RIGHT));
 
-     private void calculateResult() {
-         if (!currentInput.isEmpty() && !operator.isEmpty()) {
-             double secondNumber = Double.parseDouble(currentInput);
-             double result = 0;
+    }
 
-             switch (operator) {
-                 case "+":
-                     result = firstNumber + secondNumber;
-                     break;
-                 case "-":
-                     result = firstNumber - secondNumber;
-                     break;
-                 case "*":
-                     result = firstNumber * secondNumber;
-                     break;
-                 case "/":
-                     if (secondNumber != 0) {
-                         result = firstNumber / secondNumber;
-                     } else {
-                         input.setText("Error");
-                         return;
-                     }
-                     break;
-             }
+    private void setupOperatorButtons() {
+        findViewById(R.id.btnAdd).setOnClickListener(v -> handleOperator("+"));
+        findViewById(R.id.btnSubtract).setOnClickListener(v -> handleOperator("-"));
+        findViewById(R.id.btnMultiply).setOnClickListener(v -> handleOperator("*"));
+        findViewById(R.id.btnDivide).setOnClickListener(v -> handleOperator("/"));
+        findViewById(R.id.btnOpenParentheses).setOnClickListener(v -> handleOperator("("));
+        findViewById(R.id.btnCloseParentheses).setOnClickListener(v -> handleOperator(")"));
 
-             input.setText(String.valueOf(result));
-             currentInput = String.valueOf(result);
-             operator = "";
-         }
-     }
+        findViewById(R.id.btnEquals).setOnClickListener(v -> calculateResult());
+        findViewById(R.id.btnClear).setOnClickListener(v -> clear());
+        findViewById(R.id.btnDelete).setOnClickListener(v -> deleteLastCharacter());
+    }
 
-     private void clear() {
-         currentInput = "";
-         firstNumber = 0;
-         operator = "";
-         input.setText("");
-     }
+    private void handleOperator(String op) {
+        if (!currentInput.isEmpty() || "(".equals(op)) {
+            currentInput += op;
+            updateInput();
+        }
+    }
 
-     private void deleteLastCharacter() {
-         if (!currentInput.isEmpty()) {
-             currentInput = currentInput.substring(0, currentInput.length() - 1);
-             input.setText(currentInput);
-         }
-     }
- }
+    private void calculateResult() {
+        if (!currentInput.isEmpty()) {
+            Expression e = new Expression(currentInput);
+            mXparser.consolePrintln("Res: " + e.getExpressionString() + " = " + e.calculate());
+            if (Double.isNaN(e.calculate())) {
+//                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//                builder.setTitle("Error");
+//                builder.setMessage("invalid operation");
+//                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialog.dismiss();
+//                    }
+//                });
+//
+//                AlertDialog alertDialog = builder.create();
+//                alertDialog.show();
+
+                Toast toast = new Toast(getApplicationContext());
+                toast.setText("invalid operation");
+                toast.setDuration(Toast.LENGTH_SHORT);
+                toast.show();
+            } else {
+                currentInput = String.valueOf(e.calculate());
+                updateInput();
+            }
+        }
+    }
+
+    private void clear() {
+        currentInput = "";
+        updateInput();
+    }
+
+    private void deleteLastCharacter() {
+        if (!currentInput.isEmpty()) {
+            currentInput = currentInput.substring(0, currentInput.length() - 1);
+            updateInput();
+        }
+    }
+}
