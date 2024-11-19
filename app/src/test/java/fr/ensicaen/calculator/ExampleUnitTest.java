@@ -12,6 +12,10 @@ package fr.ensicaen.calculator;
   public class ExampleUnitTest {
       @Test
       public void addition_isCorrect() {
+//          Expression e = new Expression("(1+3)(7-4)");
+//          mXparser.consolePrintln("Res: " + e.getExpressionString() + " = " + e.calculate());
+//          System.out.println("Res: " + e.getExpressionString() + " = " + e.calculate());
+
           assertEquals(4, 2 + 2);
       }
   }

@@ -1,15 +1,19 @@
  package fr.ensicaen.calculator.view;
 
+ import static java.lang.Math.max;
+
  import androidx.appcompat.app.AppCompatActivity;
  import android.os.Bundle;
  import android.view.View;
  import android.widget.TextView;
+ import org.mariuszgromada.math.mxparser.*;
 
  import com.google.android.material.button.MaterialButton;
 
  import fr.ensicaen.calculator.R;
 
  public class MainActivity extends AppCompatActivity {
+     private TextView input;
      private TextView input;
      private String currentInput = "";
      private double firstNumber = 0;
@@ -35,8 +39,9 @@
          View.OnClickListener listener = v -> {
              MaterialButton button = (MaterialButton) v;
              System.out.println(button.getText());
-             currentInput = button.getText().toString();
-             input.setText(currentInput);
+             currentInput += button.getText().toString();
+             updateInput();
+
          };
 
          for (int id : numberButtonIds) {
@@ -44,68 +49,52 @@
          }
      }
 
+     private void updateInput() {
+         int beginIndex = max(currentInput.length()-10, 0);
+         input.setText(currentInput.substring(beginIndex));
+
+     }
+
      private void setupOperatorButtons() {
          findViewById(R.id.btnAdd).setOnClickListener(v -> handleOperator("+"));
          findViewById(R.id.btnSubtract).setOnClickListener(v -> handleOperator("-"));
          findViewById(R.id.btnMultiply).setOnClickListener(v -> handleOperator("*"));
          findViewById(R.id.btnDivide).setOnClickListener(v -> handleOperator("/"));
+         findViewById(R.id.btnOpenParentheses).setOnClickListener(v -> handleOperator("("));
+         findViewById(R.id.btnCloseParentheses).setOnClickListener(v -> handleOperator(")"));
 
          findViewById(R.id.btnEquals).setOnClickListener(v -> calculateResult());
          findViewById(R.id.btnClear).setOnClickListener(v -> clear());
          findViewById(R.id.btnDelete).setOnClickListener(v -> deleteLastCharacter());
      }
 
+     // TODO: open parenthesis logic
      private void handleOperator(String op) {
-         if (!currentInput.isEmpty()) {
-             firstNumber = Double.parseDouble(currentInput);
-             operator = op;
-             currentInput = op;
-             input.setText(currentInput);
+         if (!currentInput.isEmpty() || "(".equals(op)) {
+             currentInput += op;
+             updateInput();
          }
      }
 
+
      private void calculateResult() {
-         if (!currentInput.isEmpty() && !operator.isEmpty()) {
-             double secondNumber = Double.parseDouble(currentInput);
-             double result = 0;
-
-             switch (operator) {
-                 case "+":
-                     result = firstNumber + secondNumber;
-                     break;
-                 case "-":
-                     result = firstNumber - secondNumber;
-                     break;
-                 case "*":
-                     result = firstNumber * secondNumber;
-                     break;
-                 case "/":
-                     if (secondNumber != 0) {
-                         result = firstNumber / secondNumber;
-                     } else {
-                         input.setText("Error");
-                         return;
-                     }
-                     break;
-             }
-
-             input.setText(String.valueOf(result));
-             currentInput = String.valueOf(result);
-             operator = "";
+         if (!currentInput.isEmpty()) {
+            Expression e = new Expression(currentInput);
+            mXparser.consolePrintln("Res: " + e.getExpressionString() + " = " + e.calculate());
+            currentInput = String.valueOf(e.calculate());
+            updateInput();
          }
      }
 
      private void clear() {
-         currentInput = "";
-         firstNumber = 0;
-         operator = "";
-         input.setText("");
+         currentInput="";
+         updateInput();
      }
 
      private void deleteLastCharacter() {
          if (!currentInput.isEmpty()) {
              currentInput = currentInput.substring(0, currentInput.length() - 1);
-             input.setText(currentInput);
+             updateInput();
          }
      }
  }
