@@ -1,120 +1,78 @@
 package fr.ensicaen.calculator.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import android.os.Bundle;
-import android.widget.TextView;
-import org.mariuszgromada.math.mxparser.*;
-import android.widget.HorizontalScrollView;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.view.View;
-import android.widget.Toast;
-
-import com.google.android.material.button.MaterialButton;
+import androidx.annotation.NonNull;
+import androidx.drawerlayout.widget.DrawerLayout;
+import android.view.MenuItem;
+import androidx.fragment.app.Fragment;
+import com.google.android.material.navigation.NavigationView;
 
 import fr.ensicaen.calculator.R;
 
 public class MainActivity extends AppCompatActivity {
-
-    private TextView input;
-    private String currentInput = "";
-    private HorizontalScrollView scrollView;
+    public DrawerLayout drawerLayout;
+    public ActionBarDrawerToggle actionBarDrawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
 
-        scrollView = findViewById(R.id.scrollInput);
-        input = findViewById(R.id.input);
-        setupNumberButtons();
-        setupOperatorButtons();
-    }
+        // drawer layout instance to toggle the menu icon to open
+        // drawer and back button to close drawer
+        drawerLayout = findViewById(R.id.drawer_layout);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
 
-    private void setupNumberButtons() {
-        int[] numberButtonIds = {
-            R.id.btn0, R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,
-            R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9, R.id.btnDot
-        };
+        // pass the Open and Close toggle for the drawer layout listener
+        // to toggle the button
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
 
-        View.OnClickListener listener = v -> {
-            MaterialButton button = (MaterialButton) v;
-            System.out.println(button.getText());
-            currentInput += button.getText().toString();
-            updateInput();
-
-        };
-
-        for (int id : numberButtonIds) {
-            findViewById(id).setOnClickListener(listener);
+        // to make the Navigation drawer icon always appear on the action bar
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-    }
 
-    private void updateInput() {
-        input.setText(currentInput);
-        scrollView.post(() -> scrollView.fullScroll(HorizontalScrollView.FOCUS_RIGHT));
-
-    }
-
-    private void setupOperatorButtons() {
-        findViewById(R.id.btnAdd).setOnClickListener(v -> handleOperator("+"));
-        findViewById(R.id.btnSubtract).setOnClickListener(v -> handleOperator("-"));
-        findViewById(R.id.btnMultiply).setOnClickListener(v -> handleOperator("*"));
-        findViewById(R.id.btnDivide).setOnClickListener(v -> handleOperator("/"));
-        findViewById(R.id.btnOpenParentheses).setOnClickListener(v -> handleOperator("("));
-        findViewById(R.id.btnCloseParentheses).setOnClickListener(v -> handleOperator(")"));
-
-        findViewById(R.id.btnEquals).setOnClickListener(v -> calculateResult());
-        findViewById(R.id.btnClear).setOnClickListener(v -> clear());
-        findViewById(R.id.btnDelete).setOnClickListener(v -> deleteLastCharacter());
-    }
-
-    private void handleOperator(String op) {
-        if (!currentInput.isEmpty() || "(".equals(op)) {
-            currentInput += op;
-            updateInput();
-        }
-    }
-
-    private void calculateResult() {
-        if (!currentInput.isEmpty()) {
-            Expression e = new Expression(currentInput);
-            mXparser.consolePrintln("Res: " + e.getExpressionString() + " = " + e.calculate());
-            if (Double.isNaN(e.calculate())) {
-//                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//                builder.setTitle("Error");
-//                builder.setMessage("invalid operation");
-//                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        dialog.dismiss();
-//                    }
-//                });
-//
-//                AlertDialog alertDialog = builder.create();
-//                alertDialog.show();
-
-                Toast toast = new Toast(getApplicationContext());
-                toast.setText("invalid operation");
-                toast.setDuration(Toast.LENGTH_SHORT);
-                toast.show();
-            } else {
-                currentInput = String.valueOf(e.calculate());
-                updateInput();
+        // Listener para o NavigationView
+        NavigationView navigationView = findViewById(R.id.navigation_view);
+        navigationView.setNavigationItemSelectedListener(item -> {
+            if(item.getItemId() == R.id.nav_calculator) {
+                changeFragment(new CalculatorFragment());
             }
+            else if(item.getItemId() == R.id.nav_settings) {
+                changeFragment(new SettingsFragment());
+            }
+            else if(item.getItemId() == R.id.nav_rss) {
+                changeFragment(new RssFragment());
+            }
+
+            drawerLayout.closeDrawers();
+            return true;
+        });
+
+        // TODO: highlight selected one
+        setFirstFragment(savedInstanceState);
+    }
+
+    private void changeFragment(Fragment selectedFragment) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, selectedFragment)
+                .commit();
+    }
+
+    private void setFirstFragment(Bundle savedInstanceState) {
+        if(savedInstanceState==null) {
+            changeFragment(new CalculatorFragment());
         }
     }
 
-    private void clear() {
-        currentInput = "";
-        updateInput();
-    }
-
-    private void deleteLastCharacter() {
-        if (!currentInput.isEmpty()) {
-            currentInput = currentInput.substring(0, currentInput.length() - 1);
-            updateInput();
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 }

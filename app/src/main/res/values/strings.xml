@@ -21,4 +21,13 @@
     <string name="button7">7</string>
     <string name="button8">8</string>
     <string name="button9">9</string>
+
+    <!-- TODO: Use string at error message -->
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nav_rss">RSS</string>
+    <string name="nav_calculator">Calculator</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_open">Open navigation</string>
+    <string name="nav_close">Close navigation</string>
 </resources>
