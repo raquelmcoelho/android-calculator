@@ -14,6 +14,7 @@
 
  public class MainActivity extends AppCompatActivity {
      private TextView input;
+     private TextView input;
      private String currentInput = "";
      private double firstNumber = 0;
      private String operator = "";

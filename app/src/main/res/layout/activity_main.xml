@@ -2,8 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".view.MainActivity"
+    android:background="@color/white">
     tools:context=".view.MainActivity"
     android:background="@color/white">
 
@@ -21,11 +26,25 @@
         android:enabled="false"
         android:layout_margin="16dp"/>
 
+        android:hint="@string/hint_input"
+        android:text="@string/hint_input"
+        android:textSize="64sp"
+        android:textColor="@color/black"
+        android:textAlignment="textEnd"
+        android:layout_above="@id/buttons_layout"
+        android:enabled="false"
+        android:layout_margin="16dp"/>
 
+
+    <LinearLayout
+        android:id="@+id/buttons_layout"
     <LinearLayout
         android:id="@+id/buttons_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:background="@color/light">
         android:orientation="vertical"
         android:layout_alignParentBottom="true"
         android:background="@color/light">
@@ -61,6 +80,7 @@
             android:text="@string/button_close_parentheses"
             android:textColor="@color/white"
             android:backgroundTint="@color/medium"
+            android:backgroundTint="@color/medium"
             style="@style/ShapeAppearanceOverlay.Material3.FloatingActionButton"
         />
 
@@ -94,6 +114,11 @@
         </LinearLayout>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -152,9 +177,15 @@
             style="@style/ShapeAppearanceOverlay.Material3.FloatingActionButton"
             />
         </LinearLayout>
+        </LinearLayout>
 
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -213,8 +244,14 @@
             style="@style/ShapeAppearanceOverlay.Material3.FloatingActionButton"
             />
         </LinearLayout>
+        </LinearLayout>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -339,5 +376,6 @@
                 />
         </LinearLayout>
 </LinearLayout>
+</RelativeLayout>
 </RelativeLayout>
 
