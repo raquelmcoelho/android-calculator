@@ -77,7 +77,7 @@ public class SettingsFragment extends Fragment {
     }
 
 
-    void changeLanguage(String lang) {
+    void changeLanguage() {
         System.out.println("changing language");
         RadioButton radioButton = (RadioButton) requireActivity().findViewById(fragmentSettingsBinding.radioBtnLanguage.getCheckedRadioButtonId());
         ((MainActivity) requireActivity()).changeLanguage(radioButton.getContentDescription().toString());
