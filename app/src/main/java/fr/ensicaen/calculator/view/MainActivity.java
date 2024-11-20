@@ -1,9 +1,9 @@
 package fr.ensicaen.calculator.view;
 
-import static androidx.core.content.ContextCompat.getSystemService;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,26 +13,18 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
-import androidx.core.os.HandlerCompat;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.os.Handler;
-import android.os.Looper;
 import android.util.DisplayMetrics;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.RadioButton;
 
 import androidx.fragment.app.Fragment;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.Locale;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import fr.ensicaen.calculator.R;
-import fr.ensicaen.calculator.model.MyRSSsaxHandler;
 
 public class MainActivity extends AppCompatActivity {
     public DrawerLayout drawerLayout;
@@ -42,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         // drawer layout instance to toggle the menu icon to open
         // drawer and back button to close drawer
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -114,7 +105,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void changeTheme() {
-        System.out.println("changing theme");
+//        UiModeManager uiModeManager = (UiModeManager) getSystemService(UI_MODE_SERVICE);
+//        switch (getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) {
+//            case Configuration.UI_MODE_NIGHT_NO:
+//                System.out.println("aeaea");
+//                uiModeManager.setNightMode(UiModeManager.MODE_NIGHT_YES);
+//                break;
+//            case Configuration.UI_MODE_NIGHT_YES:
+//                uiModeManager.setNightMode(UiModeManager.MODE_NIGHT_NO);
+//                break;
+//            default:
+//                System.out.println((getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK));
+//                break;
+//        }
+
         if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO) {
             AppCompatDelegate
                     .setDefaultNightMode(

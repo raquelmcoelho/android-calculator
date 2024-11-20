@@ -10,13 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import fr.ensicaen.calculator.databinding.FragmentSettingsBinding;
-import java.util.Locale;
-import java.util.Objects;
 
-import android.content.Intent;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.util.DisplayMetrics;
 import android.widget.RadioButton;
 
 /**
@@ -70,7 +64,7 @@ public class SettingsFragment extends Fragment {
                              Bundle savedInstanceState) {
         fragmentSettingsBinding = FragmentSettingsBinding.inflate(getLayoutInflater(), container, false);
 
-        fragmentSettingsBinding.btnLanguage.setOnClickListener(v -> changeLanguage("en"));
+        fragmentSettingsBinding.btnLanguage.setOnClickListener(v -> changeLanguage());
         fragmentSettingsBinding.btnTheme.setOnClickListener(v -> changeTheme());
 
         return fragmentSettingsBinding.getRoot();
@@ -79,7 +73,7 @@ public class SettingsFragment extends Fragment {
 
     void changeLanguage() {
         System.out.println("changing language");
-        RadioButton radioButton = (RadioButton) requireActivity().findViewById(fragmentSettingsBinding.radioBtnLanguage.getCheckedRadioButtonId());
+        RadioButton radioButton = requireActivity().findViewById(fragmentSettingsBinding.radioBtnLanguage.getCheckedRadioButtonId());
         ((MainActivity) requireActivity()).changeLanguage(radioButton.getContentDescription().toString());
 
     }
