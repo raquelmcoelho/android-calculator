@@ -87,15 +87,15 @@ public class MainActivity extends AppCompatActivity {
     void changeLanguage(String lang) {
         System.out.println("changing language");
 
-        Locale myLocale = new Locale(lang);
-        Resources res = getResources();
-        DisplayMetrics dm = res.getDisplayMetrics();
-        Configuration conf = res.getConfiguration();
-        conf.locale = myLocale;
-        res.updateConfiguration(conf, dm);
-        Intent refresh = new Intent(this, AndroidLocalize.class);
-        finish();
-        startActivity(refresh);
+//        Locale myLocale = new Locale(lang);
+//        Resources res = getResources();
+//        DisplayMetrics dm = res.getDisplayMetrics();
+//        Configuration conf = res.getConfiguration();
+//        conf.locale = myLocale;
+//        res.updateConfiguration(conf, dm);
+//        Intent refresh = new Intent(this, AndroidLocalize.class);
+//        finish();
+//        startActivity(refresh);
     }
 
     void changeTheme() {
