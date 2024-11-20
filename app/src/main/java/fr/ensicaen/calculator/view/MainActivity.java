@@ -8,6 +8,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.util.DisplayMetrics;
@@ -100,6 +101,15 @@ public class MainActivity extends AppCompatActivity {
 
     void changeTheme() {
         System.out.println("changing theme");
+        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO) {
+            AppCompatDelegate
+                    .setDefaultNightMode(
+                            AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate
+                    .setDefaultNightMode(
+                            AppCompatDelegate.MODE_NIGHT_NO);
+        }
 
     }
 }

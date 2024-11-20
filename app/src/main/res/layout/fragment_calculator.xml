@@ -52,7 +52,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:background="@color/transparent">
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnClear"
@@ -109,7 +110,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:background="@color/transparent"
+            >
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn7"
                     android:layout_width="72dp"
@@ -166,7 +169,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:background="@color/transparent">
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn4"
                     android:layout_width="72dp"
@@ -222,7 +226,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:background="@color/transparent">
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn1"
                     android:layout_width="72dp"
@@ -277,7 +282,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:background="@color/transparent">
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnDelete"
                     android:layout_width="72dp"
