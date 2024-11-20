@@ -32,6 +32,4 @@ public class Item {
     private Bitmap getImage(byte[] img) {
         return BitmapFactory.decodeByteArray(img, 0, img.length);
     }
-
-
 }

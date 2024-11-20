@@ -25,7 +25,6 @@ import javax.xml.parsers.SAXParserFactory;
 
 public class MyRSSsaxHandler extends DefaultHandler {
 
-    private final String DATABASE_NAME = "database-name";
 
     private String url = null ;// l'URL du flux RSS à parser
     // Ensemble de drapeau permettant de savoir où en est le parseur dans le flux XML
@@ -58,7 +57,6 @@ public class MyRSSsaxHandler extends DefaultHandler {
 
     public void processFeed(){
         try {
-
             numItem = 0; //A modifier pour visualiser un autre item
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser parser = factory.newSAXParser();
@@ -70,7 +68,6 @@ public class MyRSSsaxHandler extends DefaultHandler {
             numItemMax = numItem;
 
             items = itemDAO.getAll();
-
         }catch(Exception e) {
             Log.e("smb116rssview", "processFeed Exception" + e.getMessage());
         }
@@ -166,8 +163,7 @@ public class MyRSSsaxHandler extends DefaultHandler {
     }
 
     public void getDatabase(Context context) {
-        RoomDatabase.Builder<AppDatabase> builder =  Room.databaseBuilder(context, AppDatabase.class, DATABASE_NAME);
-        db = builder.build();
+        db = AppDatabase.getInstance(context);
         itemDAO = db.itemDao();
     }
 }

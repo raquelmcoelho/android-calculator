@@ -23,6 +23,7 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.Locale;
+import java.util.Objects;
 
 import fr.ensicaen.calculator.R;
 
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         // drawer and back button to close drawer
         drawerLayout = findViewById(R.id.drawer_layout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.app_name);
+
 
         // pass the Open and Close toggle for the drawer layout listener
         // to toggle the button
@@ -105,20 +108,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void changeTheme() {
-//        UiModeManager uiModeManager = (UiModeManager) getSystemService(UI_MODE_SERVICE);
-//        switch (getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) {
-//            case Configuration.UI_MODE_NIGHT_NO:
-//                System.out.println("aeaea");
-//                uiModeManager.setNightMode(UiModeManager.MODE_NIGHT_YES);
-//                break;
-//            case Configuration.UI_MODE_NIGHT_YES:
-//                uiModeManager.setNightMode(UiModeManager.MODE_NIGHT_NO);
-//                break;
-//            default:
-//                System.out.println((getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK));
-//                break;
-//        }
-
         if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO) {
             AppCompatDelegate
                     .setDefaultNightMode(

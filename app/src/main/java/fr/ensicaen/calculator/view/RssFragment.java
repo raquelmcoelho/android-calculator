@@ -101,12 +101,10 @@ public class RssFragment extends Fragment {
     }
 
     public void processRSS() {
-
         ExecutorService service = Executors.newSingleThreadExecutor();
         Handler mainThreadHandler = HandlerCompat.createAsync(Looper.getMainLooper());
 
         service.execute( () -> {
-
             handler.getDatabase(getContext());
 
             if (((MainActivity) requireActivity()).isOnline()) {
@@ -115,7 +113,14 @@ public class RssFragment extends Fragment {
             }
             handler.extractDb();
 
-            mainThreadHandler.post(() -> handler.getNextItem().displayItem(this));
+            mainThreadHandler.post(() -> {
+                handler.getNextItem().displayItem(this);
+                fragmentRssBinding.buttonPrev.setClickable(true);
+                fragmentRssBinding.buttonNext.setClickable(true);
+                fragmentRssBinding.buttonNext.setVisibility(View.VISIBLE);
+                fragmentRssBinding.buttonPrev.setVisibility(View.VISIBLE);
+
+            });
         });
 
     }
