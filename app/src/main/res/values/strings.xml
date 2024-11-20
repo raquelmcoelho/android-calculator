@@ -22,6 +22,13 @@
     <string name="button8" translatable="false">8</string>
     <string name="button9" translatable="false">9</string>
 
+    <string name="image_precedente">Previous</string>
+    <string name="image_suivante">Next</string>
+    <string name="test_image_title">Image title</string>
+    <string name="test_image_date">Image date</string>
+    <string name="description_image">Image description</string>
+    <string name="test_image_description">Image description </string>
+
     <!-- TODO: Use string at error message -->
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
@@ -32,4 +39,7 @@
     <string name="math_error">Invalid operation</string>
     <string name="button_theme">Change theme</string>
     <string name="button_language">Change language</string>
+    <string name="english">English</string>
+    <string name="french">French</string>
+    <string name="portuguese">Portuguese</string>
 </resources>

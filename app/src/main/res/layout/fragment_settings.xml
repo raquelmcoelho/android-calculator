@@ -24,6 +24,36 @@
                 style="@style/ShapeAppearanceOverlay.Material3.FloatingActionButton"
                 />
 
+            <RadioGroup
+                android:id="@+id/radioBtnLanguage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <RadioButton
+                    android:id="@+id/btnEn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/english"
+                    android:contentDescription="en"/>
+                <RadioButton
+                    android:id="@+id/btnFr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/french"
+                    android:contentDescription="fr"/>
+
+
+                <RadioButton
+                    android:id="@+id/btnPt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/portuguese"
+                    android:contentDescription="pt"/>
+
+
+            </RadioGroup>
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnLanguage"
                 android:layout_width="wrap_content"

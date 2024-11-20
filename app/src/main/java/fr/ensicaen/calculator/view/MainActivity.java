@@ -1,24 +1,38 @@
 package fr.ensicaen.calculator.view;
 
+import static androidx.core.content.ContextCompat.getSystemService;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+import androidx.core.os.HandlerCompat;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.util.DisplayMetrics;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.RadioButton;
+
 import androidx.fragment.app.Fragment;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.Locale;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import fr.ensicaen.calculator.R;
+import fr.ensicaen.calculator.model.MyRSSsaxHandler;
 
 public class MainActivity extends AppCompatActivity {
     public DrawerLayout drawerLayout;
@@ -85,18 +99,18 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    void changeLanguage(String lang) {
+    public void changeLanguage(String lang) {
         System.out.println("changing language");
 
-//        Locale myLocale = new Locale(lang);
-//        Resources res = getResources();
-//        DisplayMetrics dm = res.getDisplayMetrics();
-//        Configuration conf = res.getConfiguration();
-//        conf.locale = myLocale;
-//        res.updateConfiguration(conf, dm);
-//        Intent refresh = new Intent(this, AndroidLocalize.class);
-//        finish();
-//        startActivity(refresh);
+        Locale myLocale = new Locale(lang);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
+        Intent refresh = new Intent(this, MainActivity.class);
+        finish();
+        startActivity(refresh);
     }
 
     void changeTheme() {
@@ -112,4 +126,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    public boolean isOnline() {
+        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        return (networkInfo != null && networkInfo.isAvailable());
+    }
+
 }
