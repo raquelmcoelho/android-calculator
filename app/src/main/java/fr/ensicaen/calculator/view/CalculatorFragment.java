@@ -134,7 +134,7 @@ public class CalculatorFragment extends Fragment {
             mXparser.consolePrintln("Res: " + e.getExpressionString() + " = " + e.calculate());
             if (Double.isNaN(e.calculate())) {
                 Toast toast = new Toast(view.getContext());
-                toast.setText("invalid operation");
+                toast.setText("@string/math_error");
                 toast.setDuration(Toast.LENGTH_SHORT);
                 toast.show();
             } else {
