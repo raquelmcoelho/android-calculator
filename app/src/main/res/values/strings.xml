@@ -30,4 +30,6 @@
     <string name="nav_open">Open navigation</string>
     <string name="nav_close">Close navigation</string>
     <string name="math_error">Invalid operation</string>
+    <string name="button_theme">Change theme</string>
+    <string name="button_language">Change language</string>
 </resources>

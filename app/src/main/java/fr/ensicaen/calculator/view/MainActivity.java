@@ -2,12 +2,20 @@ package fr.ensicaen.calculator.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import androidx.fragment.app.Fragment;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.Locale;
 
 import fr.ensicaen.calculator.R;
 
@@ -74,5 +82,24 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    void changeLanguage(String lang) {
+        System.out.println("changing language");
+
+        Locale myLocale = new Locale(lang);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
+        Intent refresh = new Intent(this, AndroidLocalize.class);
+        finish();
+        startActivity(refresh);
+    }
+
+    void changeTheme() {
+        System.out.println("changing theme");
+
     }
 }

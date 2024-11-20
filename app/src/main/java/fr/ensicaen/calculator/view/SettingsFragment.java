@@ -2,13 +2,19 @@ package fr.ensicaen.calculator.view;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import fr.ensicaen.calculator.R;
+import fr.ensicaen.calculator.databinding.FragmentSettingsBinding;
+import java.util.Locale;
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.util.DisplayMetrics;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +31,8 @@ public class SettingsFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private FragmentSettingsBinding fragmentSettingsBinding;
 
     public SettingsFragment() {
         // Required empty public constructor
@@ -51,16 +59,38 @@ public class SettingsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        fragmentSettingsBinding = FragmentSettingsBinding.inflate(getLayoutInflater());
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_settings, container, false);
+        fragmentSettingsBinding = FragmentSettingsBinding.inflate(getLayoutInflater(), container, false);
+
+        fragmentSettingsBinding.btnLanguage.setOnClickListener(v -> changeLanguage());
+        fragmentSettingsBinding.btnTheme.setOnClickListener(v -> changeTheme());
+
+        return fragmentSettingsBinding.getRoot();
+    }
+
+
+    void changeLanguage(String lang) {
+        System.out.println("changing language");
+
+        Locale myLocale = new Locale(lang);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
+        Intent refresh = new Intent(this, AndroidLocalize.class);
+        finish();
+        startActivity(refresh);
+
+    }
+
+    void changeTheme() {
+        System.out.println("changing theme");
+
     }
 }

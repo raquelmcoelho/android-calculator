@@ -5,4 +5,6 @@
     <string name="nav_open">Ouvrir la navigation</string>
     <string name="nav_close">Ferme navigation</string>
     <string name="math_error">Opération invalide</string>
+    <string name="button_theme">Changer thème</string>
+    <string name="button_language">Changer langue</string>
 </resources>
