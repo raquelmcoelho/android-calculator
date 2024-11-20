@@ -7,4 +7,14 @@
     <string name="math_error">Opération invalide</string>
     <string name="button_theme">Changer thème</string>
     <string name="button_language">Changer langue</string>
+    <string name="image_precedente">Précédent</string>
+    <string name="image_suivante">Suivant</string>
+    <string name="test_image_title">Titre image</string>
+    <string name="test_image_date">Date image</string>
+    <string name="description_image">Description image</string>
+    <string name="test_image_description">Description image</string>
+    <string name="english">Anglais</string>
+    <string name="french">Français</string>
+    <string name="portuguese">Portugais</string>
+
 </resources>
