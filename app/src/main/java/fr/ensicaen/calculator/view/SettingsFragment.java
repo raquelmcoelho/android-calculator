@@ -80,8 +80,6 @@ public class SettingsFragment extends Fragment {
 
     void changeTheme() {
         System.out.println("changing theme");
-
         ((MainActivity) requireActivity()).changeTheme();
-
     }
 }
