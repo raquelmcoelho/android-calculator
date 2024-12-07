@@ -121,7 +121,6 @@ pages:
     - gem install bundler
     - bundle install
     - bundle exec jekyll build -d public
-    - mkdir public
     - cp index.html public/index.html
   artifacts:
     paths:
