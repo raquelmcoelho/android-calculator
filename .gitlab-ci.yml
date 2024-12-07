@@ -114,9 +114,7 @@ build:
   stage: build
   script:
     - ./gradlew -Pci --console=plain --build-cache assemble
-  only:
-    - master
-
+    
 pages:
   stage: deploy
   script:
@@ -128,5 +126,3 @@ pages:
   artifacts:
     paths:
       - public
-  only:
-    - master
