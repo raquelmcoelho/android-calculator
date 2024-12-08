@@ -88,7 +88,7 @@
 #     - ./gradlew -Pci --console=plain :app:testDebug
 
 default:
-  image: ruby:3.2
+  image: gradle:jdk16
 
 variables:
   # Using a fresh runtime for each build to isolate each runtime from any previous builds.
@@ -114,13 +114,11 @@ build:
   stage: build
   script:
     - echo ignoring for now
-    
+
 pages:
   stage: deploy
   script:
-    - gem install bundler
-    - bundle install
-    - bundle exec jekyll build -d public
+    - mkdir public
     - cp index.html public/index.html
   artifacts:
     paths:
