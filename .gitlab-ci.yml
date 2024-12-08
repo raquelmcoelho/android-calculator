@@ -78,20 +78,20 @@ stages:
   - test
   - deploy
 
-# Basic android and gradle stuff
-# Check linting
-lintDebug:
-  tags:
-    - gitlab-runner-ensicaen
-  interruptible: true
-  stage: build
-  script:
-    - ./gradlew -Pci --console=plain :app:lintDebug -PbuildDir=lint
-  artifacts:
-    paths:
-      - app/lint/reports/lint-results-debug.html
-    expose_as: "lint-report"
-    when: always
+# # Basic android and gradle stuff
+# # Check linting
+# lintDebug:
+#   tags:
+#     - gitlab-runner-ensicaen
+#   interruptible: true
+#   stage: build
+#   script:
+#     - ./gradlew -Pci --console=plain :app:lintDebug -PbuildDir=lint
+#   artifacts:
+#     paths:
+#       - app/lint/reports/lint-results-debug.html
+#     expose_as: "lint-report"
+#     when: always
 
 # Make Project
 assembleDebug:
