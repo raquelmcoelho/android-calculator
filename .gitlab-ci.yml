@@ -139,7 +139,7 @@
 
 
 
-image: openjdk:11-jdk
+image: openjdk:17-jdk
 
 variables:
 
