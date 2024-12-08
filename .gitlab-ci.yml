@@ -88,7 +88,7 @@
 #     - ./gradlew -Pci --console=plain :app:testDebug
 
 default:
-  image: gradle:jdk17
+  image: cirrusci/android-sdk:33
 
 variables:
   # Using a fresh runtime for each build to isolate each runtime from any previous builds.
