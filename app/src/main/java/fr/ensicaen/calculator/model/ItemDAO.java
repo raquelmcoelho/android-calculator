@@ -12,7 +12,6 @@ public interface ItemDAO {
     @Query("SELECT * FROM item")
     List<Item> getAll();
 
-
     @Insert
     void insert(Item item);
 

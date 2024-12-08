@@ -106,14 +106,24 @@ before_script:
 
 stages:
   - build
+  - test
   - deploy
 
 build:
-  tags:
+  tags :
     - gitlab-runner-ensicaen
   stage: build
   script:
-    - echo ignoring for now
+    - ./gradlew -Pci --console=plain --build-cache assemble
+
+unit_test:
+  tags :
+    - gitlab-runner-ensicaen
+  stage: test
+  coverage: '/Coverage Total: ([0-9]{1,3})%/'
+  script:
+    - ./gradlew -Pci --console=plain test jacocoTestReport
+    - cat build/jacocoHtml/index.html | grep -o 'Total[^%]*%' | sed 's/<.*>/ /; s/Total/Coverage Total:/'
 
 pages:
   stage: deploy
