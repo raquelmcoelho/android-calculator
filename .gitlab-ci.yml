@@ -157,6 +157,12 @@ variables:
   #        commandlinetools-os_type-ANDROID_SDK_TOOLS_latest.zip
   # when the script was last modified for latest compileSdkVersion, it was which is written down below
   ANDROID_SDK_TOOLS: "7583922"
+  GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+  # Variable for the runner at ENSICAEN
+  http_proxy: http://193.49.200.22:3128
+  https_proxy: http://193.49.200.22:3128
+  HTTP_PROXY: http://193.49.200.22:3128
+  HTTPS_PROXY: http://193.49.200.22:3128
 
 # Packages installation before running script
 before_script:
@@ -200,16 +206,18 @@ stages:
   - deploy
 
 build:
+  tags:
+    - gitlab-runner-ensicaen
   stage: build
   script:
     - ./gradlew assembleDebug # command to build and debug
-  only:
-    - main #set trigger for CICD if push or merge in master branch
   artifacts:
     paths:
       - ./app/build/outputs/ # set artifact path which store your APK file
 
 unitTests:
+  tags:
+    - gitlab-runner-ensicaen
   stage: test
   script:
     - ./gradlew test
