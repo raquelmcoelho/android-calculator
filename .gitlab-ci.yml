@@ -88,23 +88,13 @@ lintDebug:
   stage: build
   script:
     - ./gradlew -Pci --console=plain :app:lintDebug -PbuildDir=lint --no-daemon --stacktrace
-  artifacts:
-    paths:
-      - app/lint/reports/lint-results-debug.html
-    expose_as: "lint-report"
-    when: always
-
-# Make Project
-assembleDebug:
-  tags:
-    - gitlab-runner-ensicaen
-  interruptible: true
-  stage: build
-  script:
     - ./gradlew -Pci --console=plain --build-cache assembleDebug --no-daemon # command to build and debug
   artifacts:
     paths:
+      - app/lint/reports/lint-results-debug.html
       - app/build/outputs/ # set artifact path which store your APK file
+    expose_as: "lint-report"
+    when: always
 
 # Run all tests, if any fails, interrupt the pipeline(fail it)
 debugTests:
@@ -113,20 +103,16 @@ debugTests:
   needs: [lintDebug, assembleDebug]
   interruptible: true
   stage: test
-  script:
-    - ./gradlew -Pci --console=plain :app:testDebug --no-daemon
-
-unitTests:
-  tags:
-    - gitlab-runner-ensicaen
-  stage: test
   coverage: "/Coverage Total: ([0-9]{1,3})%/"
   script:
+    - ./gradlew -Pci --console=plain :app:testDebug --no-daemon
     - ./gradlew -Pci --console=plain test jacocoTestReport --no-daemon
     - cat app/build/reports/jacoco/jacocoTestReport/html/index.html | grep -o 'Total[^%]*%' | sed 's/<.*>/ /; s/Total/Coverage Total:/'
   artifacts:
     paths:
       - app/build/reports/jacoco/jacocoTestReport/html
+    expose_as: "test-report"
+    when: always
 
 pages:
   stage: deploy
