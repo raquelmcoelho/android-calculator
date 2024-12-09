@@ -10,17 +10,10 @@
     tools:context=".view.MainActivity"
     tools:ignore="HardcodedText">
 
-
-<!--    <androidx.coordinatorlayout.widget.CoordinatorLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent">-->
-
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-
-<!--    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
 
     <!-- this the navigation view which draws and shows the navigation drawer -->
     <!-- include the menu created in the menu folder -->

@@ -117,7 +117,6 @@ public class MainActivity extends AppCompatActivity {
                     .setDefaultNightMode(
                             AppCompatDelegate.MODE_NIGHT_NO);
         }
-
     }
 
     public boolean isOnline() {
