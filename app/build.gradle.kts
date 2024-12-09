@@ -1,6 +1,30 @@
 plugins {
     alias(libs.plugins.android.application)
+    id("jacoco")
 }
+
+tasks.withType<Test> {
+    reports {
+        html.required.set(true) // Gera um relatório em HTML
+    }
+}
+
+tasks.register<JacocoReport>("jacocoTestReport") {
+    dependsOn("testDebugUnitTest")
+
+    group = "verification"
+    description = "Generate Jacoco coverage report."
+
+    classDirectories.setFrom(files("src/main/java/.*"))
+    sourceDirectories.setFrom(files("src/main/java"))
+    executionData.setFrom(files(layout.buildDirectory.dir("jacoco/testDebugUnitTest.exec")))
+
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+    }
+}
+
 
 android {
     namespace = "fr.ensicaen.calculator"
@@ -38,7 +62,6 @@ android {
 
 dependencies {
     implementation(libs.mathparser.org.mxparser)
-
     implementation(libs.appcompat)
     implementation(libs.material)
     testImplementation(libs.junit)
@@ -46,5 +69,4 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation(libs.room.runtime)
     annotationProcessor(libs.room.compiler)
-
 }
