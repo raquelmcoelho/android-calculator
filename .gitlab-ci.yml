@@ -78,21 +78,21 @@ stages:
   - test
   - deploy
 
-# Basic android and gradle stuff
-# Check linting
-lintDebug:
-  tags:
-    - gitlab-runner-ensicaen
-  interruptible: true
-  stage: build
-  script:
-    - echo ignoring
-  #   - ./gradlew -Pci --console=plain :app:lintDebug -PbuildDir=lint
-  # artifacts:
-  #   paths:
-  #     - app/lint/reports/lint-results-debug.html
-  #   expose_as: "lint-report"
-  #   when: always
+# # Basic android and gradle stuff
+# # Check linting
+# lintDebug:
+#   tags:
+#     - gitlab-runner-ensicaen
+#   interruptible: true
+#   stage: build
+#   script:
+#     - echo ignoring
+#   #   - ./gradlew -Pci --console=plain :app:lintDebug -PbuildDir=lint
+#   # artifacts:
+#   #   paths:
+#   #     - app/lint/reports/lint-results-debug.html
+#   #   expose_as: "lint-report"
+#   #   when: always
 
 # Make Project
 assembleDebug:
@@ -110,21 +110,21 @@ assembleDebug:
 debugTests:
   tags:
     - gitlab-runner-ensicaen
-  needs: [lintDebug, assembleDebug]
+  # needs: [lintDebug, assembleDebug]
   interruptible: true
   stage: test
   script:
     - ./gradlew -Pci --console=plain :app:testDebug
 
 
-unitTests:
-  tags:
-    - gitlab-runner-ensicaen
-  stage: test
-  coverage: "/Coverage Total: ([0-9]{1,3})%/"
-  script:
+# unitTests:
+#   tags:
+#     - gitlab-runner-ensicaen
+#   stage: test
+#   script:
     - ./gradlew -Pci --console=plain test jacocoTestReport
-    - cat build/jacocoHtml/index.html | grep -o 'Total[^%]*%' | sed 's/<.*>/ /; s/Total/Coverage Total:/'
+    - cat app/build/reports/jacoco/jacocoTestReport/html/index.html | grep -o 'Total[^%]*%' | sed 's/<.*>/ /; s/Total/Coverage Total:/'
+  coverage: "/Coverage Total: ([0-9]{1,3})%/"
   artifacts:
     paths:
       - build/jacocoHtml/
