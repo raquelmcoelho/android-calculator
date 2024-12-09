@@ -119,7 +119,7 @@ debugTests:
     #   stage: test
     #   script:
     - ./gradlew -Pci --console=plain test jacocoTestReport
-    - cat app/build/reports/jacoco/jacocoTestReport/html/index.html | grep -o 'Total[^%]*%' | sed 's/<.*>/ /; s/Total/Coverage Total:/'
+    - cat build/reports/jacoco/jacocoTestReport/html/index.html | grep -o 'Total[^%]*%' | sed 's/<.*>/ /; s/Total/Coverage Total:/'
   coverage: "/Coverage Total: ([0-9]{1,3})%/"
   artifacts:
     paths:
