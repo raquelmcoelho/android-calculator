@@ -83,7 +83,7 @@ lintDebug:
   interruptible: true
   stage: build
   script:
-    - ./gradlew -Pci --console=plain :app:lintDebug -PbuildDir=lint
+    - ./gradlew -Pci --console=plain :app:lintDebug -PbuildDir=lint --no-daemon
   artifacts:
     paths:
       - app/lint/reports/lint-results-debug.html
@@ -97,7 +97,7 @@ assembleDebug:
   interruptible: true
   stage: build
   script:
-    - ./gradlew -Pci --console=plain --build-cache assembleDebug # command to build and debug
+    - ./gradlew -Pci --console=plain --build-cache assembleDebug --no-daemon # command to build and debug
   artifacts:
     paths:
       - app/build/outputs/ # set artifact path which store your APK file
@@ -118,7 +118,7 @@ unitTests:
   stage: test
   coverage: "/Coverage Total: ([0-9]{1,3})%/"
   script:
-    - ./gradlew -Pci --console=plain test jacocoTestReport
+    - ./gradlew -Pci --console=plain test jacocoTestReport --no-daemon
     - cat app/build/reports/jacoco/jacocoTestReport/html/index.html | grep -o 'Total[^%]*%' | sed 's/<.*>/ /; s/Total/Coverage Total:/'
   artifacts:
     paths:
