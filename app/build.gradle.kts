@@ -15,7 +15,7 @@ tasks.register<JacocoReport>("jacocoTestReport") {
     group = "verification"
     description = "Generate Jacoco coverage report."
 
-    classDirectories.setFrom(files("src/main/java/.*"))
+    classDirectories.setFrom(files("build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/fr/ensicaen/calculator/"))
     sourceDirectories.setFrom(files("src/main/java"))
     executionData.setFrom(files(layout.buildDirectory.dir("jacoco/testDebugUnitTest.exec")))
 
