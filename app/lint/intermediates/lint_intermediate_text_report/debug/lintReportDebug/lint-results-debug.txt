@@ -1,0 +1,271 @@
+/home/raquel/Documents/android-calculator/app/build.gradle.kts:36: Warning: Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details. [OldTargetApi]
+        targetSdk = 34
+        ~~~~~~~~~~~~~~
+
+   Explanation for issues of type "OldTargetApi":
+   When your application runs on a version of Android that is more recent than
+   your targetSdkVersion specifies that it has been tested with, various
+   compatibility modes kick in. This ensures that your application continues
+   to work, but it may look out of place. For example, if the targetSdkVersion
+   is less than 14, your app may get an option button in the UI.
+
+   To fix this issue, set the targetSdkVersion to the highest available value.
+   Then test your app to make sure everything works correctly. You may want to
+   consult the compatibility notes to see what changes apply to each version
+   you are adding support for:
+   https://developer.android.com/reference/android/os/Build.VERSION_CODES.html
+   as well as follow this guide:
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.
+   html
+
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.html
+
+/home/raquel/Documents/android-calculator/app/src/main/java/fr/ensicaen/calculator/view/MainActivity.java:103: Warning: Found dynamic locale changes, but did not find corresponding Play Core library calls for downloading languages and splitting by language is not disabled in the bundle configuration [AppBundleLocaleChanges]
+        conf.locale = myLocale;
+             ~~~~~~
+
+   Explanation for issues of type "AppBundleLocaleChanges":
+   When changing locales at runtime (e.g. to provide an in-app language
+   switcher), the Android App Bundle must be configured to not split by locale
+   or the Play Core library must be used to download additional locales at
+   runtime.
+
+   https://developer.android.com/guide/app-bundle/configure-base#handling_language_changes
+
+/home/raquel/Documents/android-calculator/gradle/libs.versions.toml:2: Warning: A newer version of com.android.application than 8.5.0 is available: 8.7.3. (There is also a newer version of 8.5.𝑥 available, if upgrading to 8.7.3 is difficult: 8.5.2) [AndroidGradlePluginVersion]
+agp = "8.5.0"
+      ~~~~~~~
+/home/raquel/Documents/android-calculator/gradle/libs.versions.toml:2: Warning: A newer version of com.android.application than 8.5.0 is available: 8.7.3. (There is also a newer version of 8.5.𝑥 available, if upgrading to 8.7.3 is difficult: 8.5.2) [AndroidGradlePluginVersion]
+agp = "8.5.0"
+      ~~~~~~~
+/home/raquel/Documents/android-calculator/gradle/libs.versions.toml:2: Warning: A newer version of com.android.application than 8.5.0 is available: 8.7.3. (There is also a newer version of 8.5.𝑥 available, if upgrading to 8.7.3 is difficult: 8.5.2) [AndroidGradlePluginVersion]
+agp = "8.5.0"
+      ~~~~~~~
+
+   Explanation for issues of type "AndroidGradlePluginVersion":
+   This detector looks for usage of the Android Gradle Plugin where the
+   version you are using is not the current stable release. Using older
+   versions is fine, and there are cases where you deliberately want to stick
+   with an older version. However, you may simply not be aware that a more
+   recent version is available, and that is what this lint check helps find.
+
+/home/raquel/Documents/android-calculator/gradle/libs.versions.toml:4: Warning: A newer version of androidx.test.ext:junit than 1.1.5 is available: 1.2.1 [GradleDependency]
+junitVersion = "1.1.5"
+               ~~~~~~~
+/home/raquel/Documents/android-calculator/gradle/libs.versions.toml:4: Warning: A newer version of androidx.test.ext:junit than 1.1.5 is available: 1.2.1 [GradleDependency]
+junitVersion = "1.1.5"
+               ~~~~~~~
+/home/raquel/Documents/android-calculator/gradle/libs.versions.toml:4: Warning: A newer version of androidx.test.ext:junit than 1.1.5 is available: 1.2.1 [GradleDependency]
+junitVersion = "1.1.5"
+               ~~~~~~~
+/home/raquel/Documents/android-calculator/gradle/libs.versions.toml:5: Warning: A newer version of androidx.test.espresso:espresso-core than 3.5.1 is available: 3.6.1 [GradleDependency]
+espressoCore = "3.5.1"
+               ~~~~~~~
+/home/raquel/Documents/android-calculator/gradle/libs.versions.toml:5: Warning: A newer version of androidx.test.espresso:espresso-core than 3.5.1 is available: 3.6.1 [GradleDependency]
+espressoCore = "3.5.1"
+               ~~~~~~~
+/home/raquel/Documents/android-calculator/gradle/libs.versions.toml:5: Warning: A newer version of androidx.test.espresso:espresso-core than 3.5.1 is available: 3.6.1 [GradleDependency]
+espressoCore = "3.5.1"
+               ~~~~~~~
+/home/raquel/Documents/android-calculator/gradle/libs.versions.toml:6: Warning: A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.0 [GradleDependency]
+appcompat = "1.6.1"
+            ~~~~~~~
+/home/raquel/Documents/android-calculator/gradle/libs.versions.toml:6: Warning: A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.0 [GradleDependency]
+appcompat = "1.6.1"
+            ~~~~~~~
+/home/raquel/Documents/android-calculator/gradle/libs.versions.toml:6: Warning: A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.0 [GradleDependency]
+appcompat = "1.6.1"
+            ~~~~~~~
+/home/raquel/Documents/android-calculator/gradle/libs.versions.toml:7: Warning: A newer version of com.google.android.material:material than 1.10.0 is available: 1.12.0 [GradleDependency]
+material = "1.10.0"
+           ~~~~~~~~
+/home/raquel/Documents/android-calculator/gradle/libs.versions.toml:7: Warning: A newer version of com.google.android.material:material than 1.10.0 is available: 1.12.0 [GradleDependency]
+material = "1.10.0"
+           ~~~~~~~~
+/home/raquel/Documents/android-calculator/gradle/libs.versions.toml:7: Warning: A newer version of com.google.android.material:material than 1.10.0 is available: 1.12.0 [GradleDependency]
+material = "1.10.0"
+           ~~~~~~~~
+/home/raquel/Documents/android-calculator/gradle/libs.versions.toml:8: Warning: A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.0 [GradleDependency]
+constraintlayout = "2.1.4"
+                   ~~~~~~~
+/home/raquel/Documents/android-calculator/gradle/libs.versions.toml:8: Warning: A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.0 [GradleDependency]
+constraintlayout = "2.1.4"
+                   ~~~~~~~
+/home/raquel/Documents/android-calculator/gradle/libs.versions.toml:8: Warning: A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.0 [GradleDependency]
+constraintlayout = "2.1.4"
+                   ~~~~~~~
+/home/raquel/Documents/android-calculator/gradle/libs.versions.toml:10: Warning: A newer version of androidx.navigation:navigation-fragment than 2.6.0 is available: 2.8.4 [GradleDependency]
+navigationFragment = "2.6.0"
+                     ~~~~~~~
+/home/raquel/Documents/android-calculator/gradle/libs.versions.toml:10: Warning: A newer version of androidx.navigation:navigation-fragment than 2.6.0 is available: 2.8.4 [GradleDependency]
+navigationFragment = "2.6.0"
+                     ~~~~~~~
+/home/raquel/Documents/android-calculator/gradle/libs.versions.toml:10: Warning: A newer version of androidx.navigation:navigation-fragment than 2.6.0 is available: 2.8.4 [GradleDependency]
+navigationFragment = "2.6.0"
+                     ~~~~~~~
+/home/raquel/Documents/android-calculator/gradle/libs.versions.toml:11: Warning: A newer version of androidx.navigation:navigation-ui than 2.6.0 is available: 2.8.4 [GradleDependency]
+navigationUi = "2.6.0"
+               ~~~~~~~
+/home/raquel/Documents/android-calculator/gradle/libs.versions.toml:11: Warning: A newer version of androidx.navigation:navigation-ui than 2.6.0 is available: 2.8.4 [GradleDependency]
+navigationUi = "2.6.0"
+               ~~~~~~~
+/home/raquel/Documents/android-calculator/gradle/libs.versions.toml:11: Warning: A newer version of androidx.navigation:navigation-ui than 2.6.0 is available: 2.8.4 [GradleDependency]
+navigationUi = "2.6.0"
+               ~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+/home/raquel/Documents/android-calculator/app/src/main/res/drawable-v24: Warning: This folder configuration (v24) is unnecessary; minSdkVersion is 24. Merge all the resources in this folder into drawable. [ObsoleteSdkInt]
+
+   Explanation for issues of type "ObsoleteSdkInt":
+   This check flags version checks that are not necessary, because the
+   minSdkVersion (or surrounding known API level) is already at least as high
+   as the version checked for.
+
+   Similarly, it also looks for resources in -vNN folders, such as values-v14
+   where the version qualifier is less than or equal to the minSdkVersion,
+   where the contents should be merged into the best folder.
+
+/home/raquel/Documents/android-calculator/app/src/main/res/drawable/ic_settings.xml:3: Warning: Very long vector path (904 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector. [VectorPath]
+    <path android:fillColor="@android:color/white" android:pathData="M19.14,12.94c0.04,-0.3 0.06,-0.61 0.06,-0.94c0,-0.32 -0.02,-0.64 -0.07,-0.94l2.03,-1.58c0.18,-0.14 0.23,-0.41 0.12,-0.61l-1.92,-3.32c-0.12,-0.22 -0.37,-0.29 -0.59,-0.22l-2.39,0.96c-0.5,-0.38 -1.03,-0.7 -1.62,-0.94L14.4,2.81c-0.04,-0.24 -0.24,-0.41 -0.48,-0.41h-3.84c-0.24,0 -0.43,0.17 -0.47,0.41L9.25,5.35C8.66,5.59 8.12,5.92 7.63,6.29L5.24,5.33c-0.22,-0.08 -0.47,0 -0.59,0.22L2.74,8.87C2.62,9.08 2.66,9.34 2.86,9.48l2.03,1.58C4.84,11.36 4.8,11.69 4.8,12s0.02,0.64 0.07,0.94l-2.03,1.58c-0.18,0.14 -0.23,0.41 -0.12,0.61l1.92,3.32c0.12,0.22 0.37,0.29 0.59,0.22l2.39,-0.96c0.5,0.38 1.03,0.7 1.62,0.94l0.36,2.54c0.05,0.24 0.24,0.41 0.48,0.41h3.84c0.24,0 0.44,-0.17 0.47,-0.41l0.36,-2.54c0.59,-0.24 1.13,-0.56 1.62,-0.94l2.39,0.96c0.22,0.08 0.47,0 0.59,-0.22l1.92,-3.32c0.12,-0.22 0.07,-0.47 -0.12,-0.61L19.14,12.94zM12,15.6c-1.98,0 -3.6,-1.62 -3.6,-3.6s1.62,-3.6 3.6,-3.6s3.6,1.62 3.6,3.6S13.98,15.6 12,15.6z"/>
+                                                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "VectorPath":
+   Using long vector paths is bad for performance. There are several ways to
+   make the pathData shorter:
+   * Using less precision
+   * Removing some minor details
+   * Using the Android Studio vector conversion tool
+   * Rasterizing the image (converting to PNG)
+
+/home/raquel/Documents/android-calculator/app/src/main/res/drawable/ic_launcher_background.xml:2: Warning: The resource R.drawable.ic_launcher_background appears to be unused [UnusedResources]
+<vector
+^
+/home/raquel/Documents/android-calculator/app/src/main/res/drawable-v24/ic_launcher_foreground.xml:1: Warning: The resource R.drawable.ic_launcher_foreground appears to be unused [UnusedResources]
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+^
+/home/raquel/Documents/android-calculator/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp: Warning: The resource R.mipmap.ic_launcher_round appears to be unused [UnusedResources]
+/home/raquel/Documents/android-calculator/app/src/main/res/drawable/ic_menu.xml:1: Warning: The resource R.drawable.ic_menu appears to be unused [UnusedResources]
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:height="24dp" android:tint="#000000" android:viewportHeight="24" android:viewportWidth="24" android:width="24dp">
+^
+/home/raquel/Documents/android-calculator/app/src/main/res/values/strings.xml:34: Warning: The resource R.string.hello_blank_fragment appears to be unused [UnusedResources]
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests =true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests =true.
+   ,
+
+/home/raquel/Documents/android-calculator/app/src/main/res/layout-land/fragment_calculator.xml:8: Warning: This RelativeLayout layout or its FrameLayout parent is unnecessary; transfer the background attribute to the other view [UselessParent]
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     ~~~~~~~~~~~~~~
+/home/raquel/Documents/android-calculator/app/src/main/res/layout/fragment_calculator.xml:8: Warning: This RelativeLayout layout or its FrameLayout parent is unnecessary; transfer the background attribute to the other view [UselessParent]
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     ~~~~~~~~~~~~~~
+/home/raquel/Documents/android-calculator/app/src/main/res/layout/fragment_settings.xml:9: Warning: This LinearLayout layout or its FrameLayout parent is unnecessary [UselessParent]
+        <LinearLayout
+         ~~~~~~~~~~~~
+
+   Explanation for issues of type "UselessParent":
+   A layout with children that has no siblings, is not a scrollview or a root
+   layout, and does not have a background, can be removed and have its
+   children moved directly into the parent for a flatter and more efficient
+   layout hierarchy.
+
+/home/raquel/Documents/android-calculator/app/src/main/res/layout-land/fragment_calculator.xml:8: Warning: This namespace declaration is redundant [RedundantNamespace]
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/raquel/Documents/android-calculator/app/src/main/res/layout/fragment_calculator.xml:8: Warning: This namespace declaration is redundant [RedundantNamespace]
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/raquel/Documents/android-calculator/app/src/main/res/layout/fragment_calculator.xml:10: Warning: This namespace declaration is redundant [RedundantNamespace]
+        xmlns:tools="http://schemas.android.com/tools"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "RedundantNamespace":
+   In Android XML documents, only specify the namespace on the root/document
+   element. Namespace declarations elsewhere in the document are typically
+   accidental leftovers from copy/pasting XML from other files or
+   documentation.
+
+/home/raquel/Documents/android-calculator/app/src/main/res/layout-land/fragment_calculator.xml:8: Warning: Unused namespace declaration xmlns:android; already declared on the root element [UnusedNamespace]
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/raquel/Documents/android-calculator/app/src/main/res/layout/fragment_calculator.xml:8: Warning: Unused namespace declaration xmlns:android; already declared on the root element [UnusedNamespace]
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/raquel/Documents/android-calculator/app/src/main/res/layout/fragment_calculator.xml:10: Warning: Unused namespace declaration xmlns:tools; already declared on the root element [UnusedNamespace]
+        xmlns:tools="http://schemas.android.com/tools"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedNamespace":
+   Unused namespace declarations take up space and require processing that is
+   not necessary
+
+/home/raquel/Documents/android-calculator/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml:2: Warning: The application adaptive icon is missing a monochrome tag [MonochromeLauncherIcon]
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+^
+
+   Explanation for issues of type "MonochromeLauncherIcon":
+   If android:roundIcon and android:icon are both in your manifest, you must
+   either remove the reference to android:roundIcon if it is not needed; or,
+   supply the monochrome icon in the drawable defined by the android:roundIcon
+   and android:icon attribute.
+
+   For example, if android:roundIcon and android:icon are both in the
+   manifest, a launcher might choose to use android:roundIcon over
+   android:icon to display the adaptive app icon. Therefore, your themed
+   application iconwill not show if your monochrome attribute is not also
+   specified in android:roundIcon.
+
+/home/raquel/Documents/android-calculator/app/src/main/res/layout/fragment_rss.xml:29: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+        <Button
+         ~~~~~~
+
+   Explanation for issues of type "ButtonStyle":
+   Button bars typically use a borderless style for the buttons. Set the
+   style="?android:attr/buttonBarButtonStyle" attribute on each of the
+   buttons, and set style="?android:attr/buttonBarStyle" on the parent layout
+
+   https://d.android.com/r/studio-ui/designer/material/dialogs
+
+/home/raquel/Documents/android-calculator/app/src/main/res/layout/fragment_settings.xml:38: Warning: Hardcoded string "en", should use @string resource [HardcodedText]
+                    android:contentDescription="en"/>
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/raquel/Documents/android-calculator/app/src/main/res/layout/fragment_settings.xml:44: Warning: Hardcoded string "fr", should use @string resource [HardcodedText]
+                    android:contentDescription="fr"/>
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/raquel/Documents/android-calculator/app/src/main/res/layout/fragment_settings.xml:52: Warning: Hardcoded string "pt", should use @string resource [HardcodedText]
+                    android:contentDescription="pt"/>
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "HardcodedText":
+   Hardcoding text attributes directly in layout files is bad for several
+   reasons:
+
+   * When creating configuration variations (for example for landscape or
+   portrait) you have to repeat the actual text (and keep it up to date when
+   making changes)
+
+   * The application cannot be translated to other languages by just adding
+   new translations for existing string resources.
+
+   There are quickfixes to automatically extract this hardcoded string into a
+   resource lookup.
+
+0 errors, 47 warnings
