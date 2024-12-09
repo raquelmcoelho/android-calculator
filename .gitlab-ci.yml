@@ -99,7 +99,7 @@ lintDebug:
 debugTests:
   tags:
     - gitlab-runner-ensicaen
-  needs: [lintDebug, assembleDebug]
+  needs: [lintDebug]
   interruptible: true
   stage: test
   coverage: "/Coverage Total: ([0-9]{1,3})%/"
