@@ -70,6 +70,10 @@ before_script:
   # Not necessary, but just for surity
   - chmod +x ./gradlew
 
+  - ./gradlew clean | true
+  - rm -rf ~/.gradle/daemon
+  - rm -rf ~/.gradle/caches
+
 stages:
   - build
   - test
@@ -83,7 +87,7 @@ lintDebug:
   interruptible: true
   stage: build
   script:
-    - ./gradlew -Pci --console=plain :app:lintDebug -PbuildDir=lint --no-daemon
+    - ./gradlew -Pci --console=plain :app:lintDebug -PbuildDir=lint --no-daemon --stacktrace
   artifacts:
     paths:
       - app/lint/reports/lint-results-debug.html
@@ -110,7 +114,7 @@ debugTests:
   interruptible: true
   stage: test
   script:
-    - ./gradlew -Pci --console=plain :app:testDebug
+    - ./gradlew -Pci --console=plain :app:testDebug --no-daemon
 
 unitTests:
   tags:
