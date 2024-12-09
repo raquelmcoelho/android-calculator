@@ -1,100 +1,129 @@
- package fr.ensicaen.calculator.view;
-
- import static java.lang.Math.max;
-
- import androidx.appcompat.app.AppCompatActivity;
- import android.os.Bundle;
- import android.view.View;
- import android.widget.TextView;
- import org.mariuszgromada.math.mxparser.*;
-
- import com.google.android.material.button.MaterialButton;
-
- import fr.ensicaen.calculator.R;
-
- public class MainActivity extends AppCompatActivity {
-     private TextView input;
-     private TextView input;
-     private String currentInput = "";
-     private double firstNumber = 0;
-     private String operator = "";
-
-     @Override
-     protected void onCreate(Bundle savedInstanceState) {
-         super.onCreate(savedInstanceState);
-
-         setContentView(R.layout.activity_main);
-
-         input = findViewById(R.id.input);
-         setupNumberButtons();
-         setupOperatorButtons();
-     }
-
-     private void setupNumberButtons() {
-         int[] numberButtonIds = {
-             R.id.btn0, R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,
-             R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9, R.id.btnDot
-         };
-
-         View.OnClickListener listener = v -> {
-             MaterialButton button = (MaterialButton) v;
-             System.out.println(button.getText());
-             currentInput += button.getText().toString();
-             updateInput();
-
-         };
-
-         for (int id : numberButtonIds) {
-             findViewById(id).setOnClickListener(listener);
-         }
-     }
-
-     private void updateInput() {
-         int beginIndex = max(currentInput.length()-10, 0);
-         input.setText(currentInput.substring(beginIndex));
-
-     }
-
-     private void setupOperatorButtons() {
-         findViewById(R.id.btnAdd).setOnClickListener(v -> handleOperator("+"));
-         findViewById(R.id.btnSubtract).setOnClickListener(v -> handleOperator("-"));
-         findViewById(R.id.btnMultiply).setOnClickListener(v -> handleOperator("*"));
-         findViewById(R.id.btnDivide).setOnClickListener(v -> handleOperator("/"));
-         findViewById(R.id.btnOpenParentheses).setOnClickListener(v -> handleOperator("("));
-         findViewById(R.id.btnCloseParentheses).setOnClickListener(v -> handleOperator(")"));
-
-         findViewById(R.id.btnEquals).setOnClickListener(v -> calculateResult());
-         findViewById(R.id.btnClear).setOnClickListener(v -> clear());
-         findViewById(R.id.btnDelete).setOnClickListener(v -> deleteLastCharacter());
-     }
-
-     // TODO: open parenthesis logic
-     private void handleOperator(String op) {
-         if (!currentInput.isEmpty() || "(".equals(op)) {
-             currentInput += op;
-             updateInput();
-         }
-     }
+package fr.ensicaen.calculator.view;
 
 
-     private void calculateResult() {
-         if (!currentInput.isEmpty()) {
-            Expression e = new Expression(currentInput);
-            mXparser.consolePrintln("Res: " + e.getExpressionString() + " = " + e.calculate());
-            currentInput = String.valueOf(e.calculate());
-            updateInput();
-         }
-     }
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 
-     private void clear() {
-         currentInput="";
-         updateInput();
-     }
 
-     private void deleteLastCharacter() {
-         if (!currentInput.isEmpty()) {
-             currentInput = currentInput.substring(0, currentInput.length() - 1);
-             updateInput();
-         }
-     }
- }
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import android.util.DisplayMetrics;
+import android.view.MenuItem;
+
+import androidx.fragment.app.Fragment;
+import com.google.android.material.navigation.NavigationView;
+
+import java.util.Locale;
+import java.util.Objects;
+
+import fr.ensicaen.calculator.R;
+
+public class MainActivity extends AppCompatActivity {
+    public DrawerLayout drawerLayout;
+    public ActionBarDrawerToggle actionBarDrawerToggle;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        // drawer layout instance to toggle the menu icon to open
+        // drawer and back button to close drawer
+        drawerLayout = findViewById(R.id.drawer_layout);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.app_name);
+
+
+        // pass the Open and Close toggle for the drawer layout listener
+        // to toggle the button
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+
+        // to make the Navigation drawer icon always appear on the action bar
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
+        // Listener para o NavigationView
+        NavigationView navigationView = findViewById(R.id.navigation_view);
+        navigationView.setNavigationItemSelectedListener(item -> {
+            if(item.getItemId() == R.id.nav_calculator) {
+                changeFragment(new CalculatorFragment());
+            }
+            else if(item.getItemId() == R.id.nav_settings) {
+                changeFragment(new SettingsFragment());
+            }
+            else if(item.getItemId() == R.id.nav_rss) {
+                changeFragment(new RssFragment());
+            }
+
+            drawerLayout.closeDrawers();
+            return true;
+        });
+
+        // TODO: highlight selected one
+        setFirstFragment(savedInstanceState);
+    }
+
+    private void changeFragment(Fragment selectedFragment) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, selectedFragment)
+                .commit();
+    }
+
+    private void setFirstFragment(Bundle savedInstanceState) {
+        if(savedInstanceState==null) {
+            changeFragment(new CalculatorFragment());
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void changeLanguage(String lang) {
+        System.out.println("changing language");
+
+        Locale myLocale = new Locale(lang);
+        Resources res = getResources();
+        DisplayMetrics dm = res.getDisplayMetrics();
+        Configuration conf = res.getConfiguration();
+        conf.locale = myLocale;
+        res.updateConfiguration(conf, dm);
+        Intent refresh = new Intent(this, MainActivity.class);
+        finish();
+        startActivity(refresh);
+    }
+
+    void changeTheme() {
+        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO) {
+            AppCompatDelegate
+                    .setDefaultNightMode(
+                            AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate
+                    .setDefaultNightMode(
+                            AppCompatDelegate.MODE_NIGHT_NO);
+        }
+
+    }
+
+    public boolean isOnline() {
+        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        return (networkInfo != null && networkInfo.isAvailable());
+    }
+
+}

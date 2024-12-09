@@ -1,0 +1,31 @@
+<variant
+    name="debug"
+    package="fr.ensicaen.calculator"
+    minSdkVersion="24"
+    targetSdkVersion="34"
+    debuggable="true"
+    mergedManifest="lint/intermediates/merged_manifest/debug/processDebugMainManifest/AndroidManifest.xml"
+    manifestMergeReport="lint/outputs/logs/manifest-merger-debug-report.txt"
+    partialResultsDir="lint/intermediates/android_test_lint_partial_results/debug/lintAnalyzeDebugAndroidTest/out">
+  <buildFeatures
+      viewBinding="true"
+      namespacing="REQUIRED"/>
+  <sourceProviders>
+  </sourceProviders>
+  <testSourceProviders>
+    <sourceProvider
+        manifests="src/androidTest/AndroidManifest.xml"
+        javaDirectories="src/androidTest/java:src/androidTestDebug/java:src/androidTest/kotlin:src/androidTestDebug/kotlin"
+        resDirectories="src/androidTest/res:src/androidTestDebug/res"
+        assetsDirectories="src/androidTest/assets:src/androidTestDebug/assets"
+        androidTest="true"/>
+  </testSourceProviders>
+  <testFixturesSourceProviders>
+  </testFixturesSourceProviders>
+  <artifact
+      type="INSTRUMENTATION_TEST"
+      applicationId="fr.ensicaen.calculator.test"
+      generatedResourceFolders="lint/generated/res/resValues/androidTest/debug"
+      desugaredMethodsFiles="/home/raquel/.gradle/caches/transforms-4/208e1069e3d5f6db4f5737b53e8189fa/transformed/D8BackportedDesugaredMethods.txt">
+  </artifact>
+</variant>

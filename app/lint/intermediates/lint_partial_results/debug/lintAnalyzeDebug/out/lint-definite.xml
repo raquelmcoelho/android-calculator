@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.5.0" type="incidents">
+
+    <incident
+        id="VectorPath"
+        severity="warning"
+        message="Very long vector path (904 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector.">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/ic_settings.xml"
+            line="3"
+            column="70"
+            startOffset="265"
+            endLine="3"
+            endColumn="974"
+            endOffset="1169"/>
+    </incident>
+
+    <incident
+        id="ObsoleteSdkInt"
+        severity="warning"
+        message="This folder configuration (`v24`) is unnecessary; `minSdkVersion` is 24. Merge all the resources in this folder into `drawable`.">
+        <fix-data file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable-v24" folderName="drawable" requiresApi="24"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable-v24"/>
+    </incident>
+
+    <incident
+        id="RedundantNamespace"
+        severity="warning"
+        message="This namespace declaration is redundant">
+        <fix-attribute
+            description="Delete namespace"
+            attribute="xmlns:android"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_calculator.xml"
+            line="8"
+            column="21"
+            startOffset="310"
+            endLine="8"
+            endColumn="79"
+            endOffset="368"/>
+    </incident>
+
+    <incident
+        id="RedundantNamespace"
+        severity="warning"
+        message="This namespace declaration is redundant">
+        <fix-attribute
+            description="Delete namespace"
+            attribute="xmlns:tools"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_calculator.xml"
+            line="10"
+            column="9"
+            startOffset="437"
+            endLine="10"
+            endColumn="55"
+            endOffset="483"/>
+    </incident>
+
+    <incident
+        id="UselessParent"
+        severity="warning"
+        message="This `RelativeLayout` layout or its `FrameLayout` parent is unnecessary; transfer the `background` attribute to the other view">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_calculator.xml"
+            line="8"
+            column="6"
+            startOffset="295"
+            endLine="8"
+            endColumn="20"
+            endOffset="309"/>
+    </incident>
+
+    <incident
+        id="UnusedNamespace"
+        severity="warning"
+        message="Unused namespace declaration xmlns:android; already declared on the root element">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_calculator.xml"
+            line="8"
+            column="21"
+            startOffset="310"
+            endLine="8"
+            endColumn="79"
+            endOffset="368"/>
+    </incident>
+
+    <incident
+        id="UnusedNamespace"
+        severity="warning"
+        message="Unused namespace declaration xmlns:tools; already declared on the root element">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_calculator.xml"
+            line="10"
+            column="9"
+            startOffset="437"
+            endLine="10"
+            endColumn="55"
+            endOffset="483"/>
+    </incident>
+
+    <incident
+        id="ButtonStyle"
+        severity="warning"
+        message="Buttons in button bars should be borderless; use `style=&quot;?android:attr/buttonBarButtonStyle&quot;` (and `?android:attr/buttonBarStyle` on the parent)">
+        <fix-composite
+            description="Make borderless">
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_rss.xml"
+                    startOffset="385"
+                    endOffset="1538"/>
+            </fix-attribute>
+            <fix-attribute
+                description="Set style=&quot;?android:attr/buttonBarButtonStyle&quot;"
+                attribute="style"
+                value="?android:attr/buttonBarButtonStyle">
+                <range
+                    file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_rss.xml"
+                    startOffset="1205"
+                    endOffset="1518"/>
+            </fix-attribute>
+        </fix-composite>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_rss.xml"
+            line="29"
+            column="10"
+            startOffset="1206"
+            endLine="29"
+            endColumn="16"
+            endOffset="1212"/>
+    </incident>
+
+    <incident
+        id="UselessParent"
+        severity="warning"
+        message="This `LinearLayout` layout or its `FrameLayout` parent is unnecessary">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_settings.xml"
+            line="9"
+            column="10"
+            startOffset="302"
+            endLine="9"
+            endColumn="22"
+            endOffset="314"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;en&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_settings.xml"
+            line="38"
+            column="21"
+            startOffset="1476"
+            endLine="38"
+            endColumn="52"
+            endOffset="1507"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;fr&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_settings.xml"
+            line="44"
+            column="21"
+            startOffset="1766"
+            endLine="44"
+            endColumn="52"
+            endOffset="1797"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;pt&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout/fragment_settings.xml"
+            line="52"
+            column="21"
+            startOffset="2062"
+            endLine="52"
+            endColumn="52"
+            endOffset="2093"/>
+    </incident>
+
+    <incident
+        id="RedundantNamespace"
+        severity="warning"
+        message="This namespace declaration is redundant">
+        <fix-attribute
+            description="Delete namespace"
+            attribute="xmlns:android"/>
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout-land/fragment_calculator.xml"
+            line="8"
+            column="21"
+            startOffset="310"
+            endLine="8"
+            endColumn="79"
+            endOffset="368"/>
+    </incident>
+
+    <incident
+        id="UselessParent"
+        severity="warning"
+        message="This `RelativeLayout` layout or its `FrameLayout` parent is unnecessary; transfer the `background` attribute to the other view">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout-land/fragment_calculator.xml"
+            line="8"
+            column="6"
+            startOffset="295"
+            endLine="8"
+            endColumn="20"
+            endOffset="309"/>
+    </incident>
+
+    <incident
+        id="UnusedNamespace"
+        severity="warning"
+        message="Unused namespace declaration xmlns:android; already declared on the root element">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/layout-land/fragment_calculator.xml"
+            line="8"
+            column="21"
+            startOffset="310"
+            endLine="8"
+            endColumn="79"
+            endOffset="368"/>
+    </incident>
+
+    <incident
+        id="MonochromeLauncherIcon"
+        severity="warning"
+        message="The application adaptive icon is missing a monochrome tag">
+        <location
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/mipmap-anydpi-v26/ic_launcher.xml"
+            line="2"
+            column="1"
+            startOffset="39"
+            endLine="5"
+            endColumn="17"
+            endOffset="265"/>
+    </incident>
+
+    <incident
+        id="OldTargetApi"
+        severity="warning"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the `android.os.Build.VERSION_CODES` javadoc for details.">
+        <fix-replace
+            description="Update targetSdkVersion to 35"
+            oldString="34"
+            replacement="35"
+            priority="0"/>
+        <location
+            file="${:app*projectDir}/build.gradle.kts"
+            line="36"
+            column="9"
+            startOffset="882"
+            endLine="36"
+            endColumn="23"
+            endOffset="896"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.test.ext:junit than 1.1.5 is available: 1.2.1">
+        <fix-replace
+            description="Change to 1.2.1"
+            family="Update versions"
+            oldString="1.1.5"
+            replacement="1.2.1"
+            priority="0"/>
+        <location
+            file="$HOME/Documents/android-calculator/gradle/libs.versions.toml"
+            line="4"
+            column="16"
+            startOffset="57"
+            endLine="4"
+            endColumn="23"
+            endOffset="64"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.test.espresso:espresso-core than 3.5.1 is available: 3.6.1">
+        <fix-replace
+            description="Change to 3.6.1"
+            family="Update versions"
+            oldString="3.5.1"
+            replacement="3.6.1"
+            priority="0"/>
+        <location
+            file="$HOME/Documents/android-calculator/gradle/libs.versions.toml"
+            line="5"
+            column="16"
+            startOffset="80"
+            endLine="5"
+            endColumn="23"
+            endOffset="87"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.0">
+        <fix-replace
+            description="Change to 1.7.0"
+            family="Update versions"
+            oldString="1.6.1"
+            replacement="1.7.0"
+            priority="0"/>
+        <location
+            file="$HOME/Documents/android-calculator/gradle/libs.versions.toml"
+            line="6"
+            column="13"
+            startOffset="100"
+            endLine="6"
+            endColumn="20"
+            endOffset="107"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of com.google.android.material:material than 1.10.0 is available: 1.12.0">
+        <fix-replace
+            description="Change to 1.12.0"
+            family="Update versions"
+            oldString="1.10.0"
+            replacement="1.12.0"
+            priority="0"/>
+        <location
+            file="$HOME/Documents/android-calculator/gradle/libs.versions.toml"
+            line="7"
+            column="12"
+            startOffset="119"
+            endLine="7"
+            endColumn="20"
+            endOffset="127"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.0">
+        <fix-replace
+            description="Change to 2.2.0"
+            family="Update versions"
+            oldString="2.1.4"
+            replacement="2.2.0"
+            priority="0"/>
+        <location
+            file="$HOME/Documents/android-calculator/gradle/libs.versions.toml"
+            line="8"
+            column="20"
+            startOffset="147"
+            endLine="8"
+            endColumn="27"
+            endOffset="154"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.navigation:navigation-fragment than 2.6.0 is available: 2.8.4">
+        <fix-replace
+            description="Change to 2.8.4"
+            family="Update versions"
+            oldString="2.6.0"
+            replacement="2.8.4"
+            priority="0"/>
+        <location
+            file="$HOME/Documents/android-calculator/gradle/libs.versions.toml"
+            line="10"
+            column="22"
+            startOffset="208"
+            endLine="10"
+            endColumn="29"
+            endOffset="215"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.navigation:navigation-ui than 2.6.0 is available: 2.8.4">
+        <fix-replace
+            description="Change to 2.8.4"
+            family="Update versions"
+            oldString="2.6.0"
+            replacement="2.8.4"
+            priority="0"/>
+        <location
+            file="$HOME/Documents/android-calculator/gradle/libs.versions.toml"
+            line="11"
+            column="16"
+            startOffset="231"
+            endLine="11"
+            endColumn="23"
+            endOffset="238"/>
+    </incident>
+
+    <incident
+        id="AndroidGradlePluginVersion"
+        severity="warning"
+        message="A newer version of com.android.application than 8.5.0 is available: 8.7.3. (There is also a newer version of 8.5.𝑥 available, if upgrading to 8.7.3 is difficult: 8.5.2)">
+        <fix-alternatives>
+            <fix-replace
+                description="Change to 8.7.3"
+                family="Update versions"
+                oldString="8.5.0"
+                replacement="8.7.3"
+                priority="0"/>
+            <fix-replace
+                description="Change to 8.5.2"
+                family="Update versions"
+                robot="true"
+                independent="true"
+                oldString="8.5.0"
+                replacement="8.5.2"
+                priority="0"/>
+        </fix-alternatives>
+        <location
+            file="$HOME/Documents/android-calculator/gradle/libs.versions.toml"
+            line="2"
+            column="7"
+            startOffset="17"
+            endLine="2"
+            endColumn="14"
+            endOffset="24"/>
+    </incident>
+
+</incidents>

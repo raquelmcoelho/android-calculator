@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.5.0" type="partial_results">
+    <map id="UnsafeIntentLaunch">
+            <map id="unprotected">
+                <entry
+                    name="fr.ensicaen.calculator.view.MainActivity"
+                    boolean="true"/>
+            </map>
+    </map>
+    <map id="AppBundleLocaleChanges">
+        <location id="localeChangeLocation"
+            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/fr/ensicaen/calculator/view/MainActivity.java"
+            line="103"
+            column="14"
+            startOffset="3543"
+            endLine="103"
+            endColumn="20"
+            endOffset="3549"/>
+    </map>
+    <map id="UnusedResources">
+        <location id="R.drawable.ic_launcher_foreground"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable-v24/ic_launcher_foreground.xml"
+            line="1"
+            column="1"
+            startOffset="0"
+            endLine="31"
+            endColumn="10"
+            endOffset="1709"/>
+        <location id="R.string.hello_blank_fragment"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="34"
+            column="13"
+            startOffset="1847"
+            endLine="34"
+            endColumn="40"
+            endOffset="1874"/>
+        <entry
+            name="model"
+            string="attr[colorPrimaryVariant(R),colorOnPrimary(R)],color[white(U),black(U),light(U),transparent(U),medium_dark(U),medium(U),medium_saturated(U),dark(U),ic_launcher_background(U)],drawable[ic_calculator(U),ic_launcher_background(D),ic_menu(D),ic_rss(U),ic_settings(U),ic_launcher_foreground(D),ic_launcher_foreground_1(E)],id[drawer_layout(U),fragment_container(U),navigation_view(U),scrollInput(U),buttons_layout(U),input(U),btnClear(U),btnOpenParentheses(U),btnCloseParentheses(U),btnDivide(U),btn7(U),btn8(U),btn9(U),btnMultiply(U),btn4(U),btn5(U),btn6(U),btnAdd(U),btn1(U),btn2(U),btn3(U),btnSubtract(U),btnDelete(U),btn0(U),btnDot(U),btnEquals(U),linearLayout2(U),buttonPrev(U),buttonNext(U),scrollView(D),linearLayout(D),imageTitle(U),imageDate(U),imageDisplay(U),imageDescription(U),btnTheme(U),radioBtnLanguage(U),btnEn(D),btnFr(D),btnPt(D),btnLanguage(U),nav_calculator(U),nav_rss(U),nav_settings(U)],layout[activity_main(U),fragment_calculator(U),fragment_rss(U),fragment_settings(U)],menu[nav_menu(U)],mipmap[ic_launcher(U),ic_launcher_foreground(U),ic_launcher_round(D)],string[app_name(U),hint_input(U),button_clear(U),button_open_parentheses(U),button_close_parentheses(U),button_divide(U),button7(U),button8(U),button9(U),button_multiply(U),button4(U),button5(U),button6(U),button_sum(U),button1(U),button2(U),button3(U),button_subtract(U),button_delete(U),button0(U),button_dot(U),button_equals(U),image_precedente(U),image_suivante(U),test_image_title(U),test_image_date(U),description_image(U),test_image_description(U),button_theme(U),english(U),french(U),portuguese(U),button_language(U),nav_rss(U),nav_settings(U),hello_blank_fragment(D),nav_open(U),nav_close(U),math_error(U)],style[Theme_Calculator(U),ShapeAppearanceOverlay_Material3_FloatingActionButton(R),Theme_MaterialComponents_DayNight(R)],xml[data_extraction_rules(U),backup_rules(U)];10^11,3e^42,3f^2^16^47^3^4^5^6^48^6e^7^49^4a^8^4b^9^4c^4d^4e^4f^50^51^52^53^54^55^56^57^58^59^5a^5b,40^5c^5d^2c^5e^5f^60^61,41^6^62^2^6e^63^64^65^66,42^b^46^e^67^f^68,43^a^44,45^a^44,6d^6f^9^6^2^8^4^3^0^1;;;"/>
+        <location id="R.drawable.ic_launcher_background"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/ic_launcher_background.xml"
+            line="2"
+            column="1"
+            startOffset="39"
+            endLine="74"
+            endColumn="10"
+            endOffset="4866"/>
+        <location id="R.drawable.ic_menu"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/ic_menu.xml"
+            line="1"
+            column="1"
+            startOffset="0"
+            endLine="5"
+            endColumn="10"
+            endOffset="340"/>
+        <location id="R.mipmap.ic_launcher_round"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/mipmap-hdpi/ic_launcher_round.webp"/>
+    </map>
+
+</incidents>
