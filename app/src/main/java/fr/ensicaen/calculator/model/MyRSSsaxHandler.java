@@ -24,8 +24,6 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 public class MyRSSsaxHandler extends DefaultHandler {
-
-
     private String url = null ;// l'URL du flux RSS à parser
     // Ensemble de drapeau permettant de savoir où en est le parseur dans le flux XML
     private boolean inTitle = false ;

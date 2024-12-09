@@ -5,7 +5,7 @@ plugins {
 
 tasks.withType<Test> {
     reports {
-        html.required.set(true) // Gera um relatório em HTML
+        html.required.set(true)
     }
 }
 

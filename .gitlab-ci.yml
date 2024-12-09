@@ -117,7 +117,7 @@ pages:
   stage: deploy
   script:
     - mkdir public
-    - cp index.html public/index.html
+    - cp -r web/* public
   artifacts:
     paths:
       - public
