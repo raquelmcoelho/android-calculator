@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-mergeDebugResources-33:/layout/fragment_calculator.xml",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/layout/fragment_calculator.xml"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-mergeDebugResources-33:/layout/activity_main.xml",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-mergeDebugResources-33:/layout/fragment_settings.xml",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/layout/fragment_settings.xml"
+    },
+    {
+        "merged": "fr.ensicaen.calculator.app-mergeDebugResources-33:/layout/fragment_rss.xml",
+        "source": "fr.ensicaen.calculator.app-main-36:/layout/fragment_rss.xml"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-mergeDebugResources-33:/layout/fragment_rss.xml",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/layout/fragment_rss.xml"
+    }
+]

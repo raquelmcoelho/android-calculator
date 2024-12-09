@@ -1,0 +1,130 @@
+[
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/layout-land_fragment_calculator.xml.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/layout-land/fragment_calculator.xml"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/mipmap-xxhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/mipmap-mdpi_ic_launcher_foreground.webp.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/mipmap-mdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/mipmap-hdpi_ic_launcher_foreground.webp.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/mipmap-hdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/drawable_ic_calculator.xml.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/drawable/ic_calculator.xml"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/layout_activity_main.xml.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/menu_nav_menu.xml.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/menu/nav_menu.xml"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/layout_fragment_rss.xml.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/layout/fragment_rss.xml"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/drawable_ic_menu.xml.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/drawable/ic_menu.xml"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/layout_fragment_calculator.xml.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/layout/fragment_calculator.xml"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/xml_data_extraction_rules.xml.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/mipmap-xhdpi_ic_launcher_foreground.webp.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/mipmap-xhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/mipmap-xxxhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/xml_backup_rules.xml.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/layout_fragment_settings.xml.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/layout/fragment_settings.xml"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "fr.ensicaen.calculator.app-debug-34:/layout_fragment_rss.xml.flat",
+        "source": "fr.ensicaen.calculator.app-main-36:/layout/fragment_rss.xml"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/drawable_ic_rss.xml.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/drawable/ic_rss.xml"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/drawable_ic_launcher_background.xml.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-debug-34:/drawable_ic_settings.xml.flat",
+        "source": "/home/raquel/.gradle/daemon/8.7/fr.ensicaen.calculator.app-main-36:/drawable/ic_settings.xml"
+    }
+]

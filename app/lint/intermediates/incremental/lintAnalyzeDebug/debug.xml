@@ -1,0 +1,33 @@
+<variant
+    name="debug"
+    package="fr.ensicaen.calculator"
+    minSdkVersion="24"
+    targetSdkVersion="34"
+    debuggable="true"
+    mergedManifest="lint/intermediates/merged_manifest/debug/processDebugMainManifest/AndroidManifest.xml"
+    proguardFiles="lint/intermediates/default_proguard_files/global/proguard-android.txt-8.5.0"
+    partialResultsDir="lint/intermediates/lint_partial_results/debug/lintAnalyzeDebug/out"
+    desugaredMethodsFiles="/home/raquel/.gradle/caches/transforms-4/208e1069e3d5f6db4f5737b53e8189fa/transformed/D8BackportedDesugaredMethods.txt">
+  <buildFeatures
+      viewBinding="true"
+      namespacing="REQUIRED"/>
+  <sourceProviders>
+    <sourceProvider
+        manifests="src/main/AndroidManifest.xml"
+        javaDirectories="src/main/java:src/debug/java:src/main/kotlin:src/debug/kotlin"
+        resDirectories="src/main/res:src/debug/res"
+        assetsDirectories="src/main/assets:src/debug/assets"/>
+  </sourceProviders>
+  <testSourceProviders>
+  </testSourceProviders>
+  <testFixturesSourceProviders>
+  </testFixturesSourceProviders>
+  <artifact
+      classOutputs="lint/intermediates/javac/debug/compileDebugJavaWithJavac/classes:lint/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/processDebugResources/R.jar"
+      type="MAIN"
+      applicationId="fr.ensicaen.calculator"
+      generatedSourceFolders="lint/generated/ap_generated_sources/debug/out:lint/generated/data_binding_base_class_source_out/debug/out"
+      generatedResourceFolders="lint/generated/res/resValues/debug"
+      desugaredMethodsFiles="/home/raquel/.gradle/caches/transforms-4/208e1069e3d5f6db4f5737b53e8189fa/transformed/D8BackportedDesugaredMethods.txt">
+  </artifact>
+</variant>
