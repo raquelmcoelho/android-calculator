@@ -22,6 +22,10 @@ table {
   width: 100%;
 }
 
+img, video {
+  border: #14195c 5px solid;
+}
+
 main {
   margin: 20px auto;
   max-width: 1300px;
